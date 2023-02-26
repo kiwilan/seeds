@@ -1,0 +1,11 @@
+node_modules
+build
+dist
+.env
+src/package.json
+src/providers/.DS_Store
+.DS_Store
+key
+.fastify
+
+src/metadata.json

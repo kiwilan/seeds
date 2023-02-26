@@ -1,0 +1,10 @@
+{
+  "extends": "./.fastify/tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./src/*"],
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}

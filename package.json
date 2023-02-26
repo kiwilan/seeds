@@ -1,0 +1,59 @@
+{
+  "name": "fastify-template",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Fastify template.",
+  "author": {
+    "name": "Author name",
+    "email": "author@mail.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/kiwilan/fastify-template#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiwilan/fastify-template"
+  },
+  "keywords": [
+    "fastify"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "postinstall": "npm run config",
+    "check:types": "tsc --noEmit",
+    "clean": "rimraf build && rimraf node_modules && pnpm install",
+    "config": "node config.js",
+    "dev": "npm run config && tsx watch src .env",
+    "build": "rimraf build && npm run config && tsx build.ts && npm run check:types",
+    "preview": "npm run build && node build/index.mjs",
+    "pm2": "pm2 start --name 'social-oembed' './build/index.mjs'",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@fastify/autoload": "^5.7.1",
+    "@fastify/cors": "^8.2.0",
+    "@fastify/env": "^4.2.0",
+    "@fastify/helmet": "^10.1.0",
+    "@fastify/middie": "^8.1.0",
+    "@fastify/sensible": "^5.2.0",
+    "fastify": "^4.13.0",
+    "fastify-plugin": "^4.5.0",
+    "rimraf": "^4.1.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.35.3",
+    "@kiwilan/fastify-utils": "^0.0.20",
+    "@types/node": "^18.14.1",
+    "esbuild": "^0.17.10",
+    "esbuild-plugin-pino": "1.2.8",
+    "eslint": "^8.34.0",
+    "eslint-plugin-jsdoc": "^40.0.0",
+    "ofetch": "^1.0.1",
+    "pino": "^8.11.0",
+    "pino-pretty": "^9.4.0",
+    "tsx": "^3.12.3",
+    "typescript": "^4.9.5"
+  }
+}
