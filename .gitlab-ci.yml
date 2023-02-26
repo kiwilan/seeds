@@ -24,6 +24,8 @@ deploy-job:
     - chmod 644 ~/.ssh/known_hosts
   script:
     - ssh $SSH_USER@$SSH_IP "
+      cd /home/ewilan/www/$CI_PROJECT_NAME/src/public/seeds-pictures &&
+      git pull &&
       cd /home/ewilan/www/$CI_PROJECT_NAME &&
       git pull &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
