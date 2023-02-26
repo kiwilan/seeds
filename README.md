@@ -31,8 +31,6 @@ git clone https://gitlab.com/kiwilan/seeds-pictures ./src/public
 
 ## Build
 
-In `.env` set `NODE_ENV=production`.
-
 ```bash
 LOG_LEVEL=error      # debug | error | fatal  | info | trace | warn | silent
 

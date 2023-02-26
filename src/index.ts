@@ -7,7 +7,8 @@ import { fastifyStatic } from '@fastify/static'
 const server = Server.make()
 
 server.start({
-  callback: async (fastify) => {
+  apiKeyProtect: '/api',
+  register: async (fastify) => {
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
 
@@ -22,4 +23,13 @@ server.start({
       await symlink(root, root.replace('src', 'build'))
     }
   },
+  // autoMiddleware: (query) => [
+  //   {
+  //     endpoint: '/api/pictures',
+  //     condition: query?.url === undefined,
+  //     abort: true,
+  //     code: 500,
+  //     message: '`url` query is required.',
+  //   }
+  // ],
 })
