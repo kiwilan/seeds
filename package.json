@@ -27,7 +27,7 @@
     "dev": "npm run config && tsx watch src .env",
     "build": "rimraf build && npm run config && tsx build.ts && npm run check:types",
     "start": "npm run build && node build/index.mjs",
-    "pm2": "pm2 start --name 'social-oembed' './build/index.mjs'",
+    "pm2": "pm2 start --name 'seeds' './build/index.mjs'",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
-    "@kiwilan/fastify-utils": "^0.0.29",
+    "@kiwilan/fastify-utils": "file:~/kiwilan-fastify-utils-0.0.30.tgz",
     "@types/node": "^18.14.1",
     "esbuild": "^0.17.10",
     "esbuild-plugin-pino": "1.2.8",

@@ -9,7 +9,7 @@ specifiers:
   '@fastify/middie': ^8.1.0
   '@fastify/sensible': ^5.2.0
   '@fastify/static': ^6.9.0
-  '@kiwilan/fastify-utils': ^0.0.29
+  '@kiwilan/fastify-utils': file:~/kiwilan-fastify-utils-0.0.30.tgz
   '@types/node': ^18.14.1
   esbuild: ^0.17.10
   esbuild-plugin-pino: 1.2.8
@@ -38,7 +38,7 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config': 0.35.3_7kw3g6rralp5ps6mg3uyzz6azm
-  '@kiwilan/fastify-utils': 0.0.29
+  '@kiwilan/fastify-utils': file:../../kiwilan-fastify-utils-0.0.30.tgz
   '@types/node': 18.14.1
   esbuild: 0.17.10
   esbuild-plugin-pino: 1.2.8
@@ -531,25 +531,6 @@ packages:
 
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
-    dev: true
-
-  /@kiwilan/fastify-utils/0.0.29:
-    resolution: {integrity: sha512-w2FcqAIQdQcGCRupPiH1Wd2cccgLk1+pl28OCkLdxilPo42XPPHfnQA2/UGLIQgLPGQT8EN0h7PP46KT+tCscw==}
-    hasBin: true
-    dependencies:
-      '@fastify/cors': 8.2.0
-      '@fastify/env': 4.2.0
-      '@fastify/middie': 8.1.0
-      chalk: 5.2.0
-      commander: 10.0.0
-      conf: 11.0.1
-      esbuild: 0.17.10
-      esbuild-plugin-pino: 1.2.8
-      fastify: 4.13.0
-      ofetch: 1.0.1
-      tiny-glob: 0.2.9
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /@lukeed/ms/2.0.1:
@@ -3374,3 +3355,24 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+
+  file:../../kiwilan-fastify-utils-0.0.30.tgz:
+    resolution: {integrity: sha512-Cm3QWs2oyjSnFBmWTDH3Awsy5Kv1h8WWTyTE2Mnv6iDhsrQMk8tNXZUJRRKum0mw4ns4sooFVYMTf7Qq7fsYtg==, tarball: file:../../kiwilan-fastify-utils-0.0.30.tgz}
+    name: '@kiwilan/fastify-utils'
+    version: 0.0.30
+    hasBin: true
+    dependencies:
+      '@fastify/cors': 8.2.0
+      '@fastify/env': 4.2.0
+      '@fastify/middie': 8.1.0
+      chalk: 5.2.0
+      commander: 10.0.0
+      conf: 11.0.1
+      esbuild: 0.17.10
+      esbuild-plugin-pino: 1.2.8
+      fastify: 4.13.0
+      ofetch: 1.0.1
+      tiny-glob: 0.2.9
+    transitivePeerDependencies:
+      - supports-color
+    dev: true

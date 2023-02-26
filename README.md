@@ -1,6 +1,8 @@
-# Fastify template
+# Seeds
 
-A template for [fastify](https://www.fastify.io/) with Typescript, eslint, pnpm and `@kiwilan/fastify-utils`.
+![pipeline](https://gitlab.com/kiwilan/seeds/badges/main/pipeline.svg)
+
+API for seeds pictures.
 
 ## Setup
 
@@ -17,6 +19,12 @@ pnpm dev
 ```
 
 ## Build
+
+In `.env` set `NODE_ENV=production`.
+
+```bash
+NODE_ENV=production
+```
 
 ```bash
 pnpm build
