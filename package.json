@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
-    "@kiwilan/fastify-utils": "file:~/kiwilan-fastify-utils-0.0.30.tgz",
+    "@kiwilan/fastify-utils": "^0.0.29",
     "@types/node": "^18.14.1",
     "esbuild": "^0.17.10",
     "esbuild-plugin-pino": "1.2.8",
