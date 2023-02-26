@@ -2,7 +2,7 @@
 
 ![pipeline](https://gitlab.com/kiwilan/seeds/badges/main/pipeline.svg)
 
-API for seeds pictures.
+API for seeds pictures. You could use pictures from [this repo](https://gitlab.com/kiwilan/seeds-pictures).
 
 ## Setup
 
@@ -18,12 +18,17 @@ cp .env.example .env
 pnpm dev
 ```
 
+### Example
+
+```bash
+git clone https://gitlab.com/kiwilan/seeds-pictures ./src/public
+```
+
 ## Build
 
 In `.env` set `NODE_ENV=production`.
 
 ```bash
-NODE_ENV=production # development | test | production
 LOG_LEVEL=error      # debug | error | fatal  | info | trace | warn | silent
 
 PORT=3000 # pm2 port
