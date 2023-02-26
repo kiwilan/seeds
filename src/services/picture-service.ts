@@ -28,7 +28,7 @@ enum PictureCategory {
 
 export class PictureService {
   protected constructor(
-    protected readonly path: string = 'src/public',
+    protected path: string = 'src/public',
     protected query: QueryParams = {},
     protected category: PictureCategory = PictureCategory.all,
     protected categoriesAllowed: string[] = [],
@@ -38,6 +38,7 @@ export class PictureService {
 
   public static async make(query?: QueryParams): Promise<PictureService> {
     const self = new PictureService()
+
     query = query || { category: 'all', count: 10 }
 
     self.query = query
@@ -80,6 +81,9 @@ export class PictureService {
         for (let i = 0; i < this.query.count; i++)
           finalList.push(originalList[i % originalList.length])
       }
+    }
+    else {
+      finalList.push(...originalList)
     }
 
     return finalList
