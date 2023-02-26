@@ -3,7 +3,6 @@ import { Dotenv } from '@kiwilan/fastify-utils'
 
 export class Picture {
   protected constructor(
-    public readonly path: string,
     public readonly filename: string,
     public readonly extension?: string,
     public pathFilename?: string,
@@ -38,21 +37,23 @@ export class Picture {
     const author = `${splitCredits.shift()} ${splitCredits.shift()}`.trim()
     const token = splitCredits.shift()
 
-    const self = new Picture(path, filename, extension)
+    const self = new Picture(filename, extension)
     // self.id = Math.random().toString(36).slice(2, 16)
     // self.id = token
     self.id = self.slugify(filename)
     self.category = splitted[splitted.length - 2] || 'unknown'
-    self.size = self.setSize()
-    self.sizeHuman = self.setSizeHuman()
-    self.date = self.setDate()
+    self.size = self.setSize(path)
+    self.sizeHuman = self.setSizeHuman(path)
+    self.date = self.setDate(path)
 
-    const renderName = self.path.split('public/')
+    const renderName = path.split('public/')
     self.pathFilename = renderName[1]
+
+    const showLink = `${url}/api/pictures/${self.id}`
     self.links = {
-      show: `${url}/pictures/${self.id}`,
-      render: `${url}/render/${self.id}`,
-      download: `${url}/download/${self.id}`
+      show: showLink,
+      render: `${showLink}/render`,
+      download: `${showLink}/download`
     }
 
     self.credits = {
@@ -76,21 +77,21 @@ export class Picture {
       .replace(/--+/g, '-')
   }
 
-  private setDate(): Date {
-    const stats = statSync(this.path)
+  private setDate(path: string): Date {
+    const stats = statSync(path)
     const mtime = stats.mtime
 
     return mtime
   }
 
-  private setSize(): number {
-    const stats = statSync(this.path)
+  private setSize(path: string): number {
+    const stats = statSync(path)
     const fileSizeInBytes = stats.size
     return fileSizeInBytes
   }
 
-  private setSizeHuman() {
-    const size = this.setSize()
+  private setSizeHuman(path: string) {
+    const size = this.setSize(path)
     const i = size === 0 ? 0 : Math.floor(Math.log(size) / Math.log(1024))
     const res = (size / 1024 ** i).toFixed(2)
     return `${Number(res) * 1} ${['B', 'kB', 'MB', 'GB', 'TB'][i]}`

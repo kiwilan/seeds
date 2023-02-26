@@ -5,11 +5,11 @@ import { metaRoutes } from '~/services'
 const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.route({
     method: 'GET',
-    url: Router.setRoute('/docs'),
+    url: Router.setRoute('/api/docs'),
     async handler() {
       return {
         pictures: {
-          route: Router.route('/pictures'),
+          route: Router.route('/api/pictures'),
           query: {
             category: {
               description: 'The category of the picture',

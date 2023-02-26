@@ -4,9 +4,9 @@ const config = Dotenv.make()
 
 const metaRoutes = () => {
   return {
-    home: Router.route('/'),
-    pictures: Router.route('/pictures'),
-    docs: Router.route('/docs'),
+    home: Router.route('/api'),
+    pictures: Router.route('/api/pictures'),
+    docs: Router.route('/api/docs'),
   }
 }
 

@@ -7,7 +7,7 @@ import { metaRoutes } from '~/services'
 const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.route({
     method: 'GET',
-    url: Router.setRoute('/pictures'),
+    url: Router.setRoute('/api/pictures'),
     async handler(request, reply) {
       const queryParams = request.query as QueryParams
       const service = await PictureService.make(queryParams)
