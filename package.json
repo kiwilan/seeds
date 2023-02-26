@@ -26,7 +26,7 @@
     "config": "node config.js",
     "dev": "npm run config && tsx watch src .env",
     "build": "rimraf build && npm run config && tsx build.ts && npm run check:types",
-    "preview": "npm run build && node build/index.mjs",
+    "start": "npm run build && node build/index.mjs",
     "pm2": "pm2 start --name 'social-oembed' './build/index.mjs'",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
