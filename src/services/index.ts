@@ -5,7 +5,8 @@ const config = Dotenv.make()
 const metaRoutes = () => {
   return {
     home: Router.route('/'),
-    posts: Router.route('/posts'),
+    pictures: Router.route('/pictures'),
+    docs: Router.route('/docs'),
   }
 }
 
