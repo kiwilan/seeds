@@ -41,12 +41,14 @@
     "@fastify/static": "^6.9.0",
     "fastify": "^4.13.0",
     "fastify-plugin": "^4.5.0",
-    "rimraf": "^4.1.2"
+    "rimraf": "^4.1.2",
+    "sharp": "^0.31.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
-    "@kiwilan/fastify-utils": "^0.0.33",
+    "@kiwilan/fastify-utils": "^0.0.34",
     "@types/node": "^18.14.1",
+    "@types/sharp": "^0.31.1",
     "esbuild": "^0.17.10",
     "esbuild-plugin-pino": "1.2.8",
     "eslint": "^8.34.0",

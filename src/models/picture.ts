@@ -1,10 +1,12 @@
 import { statSync } from 'fs'
 import { Dotenv } from '@kiwilan/fastify-utils'
+import type { Size } from '~/types'
 
 export class Picture {
   protected constructor(
     public readonly filename: string,
     public readonly extension?: string,
+    public readonly sizeRender?: Size,
     public pathFilename?: string,
     public id?: string,
     public category?: string,
@@ -19,11 +21,12 @@ export class Picture {
     public links?: {
       show?: string
       render?: string
+      renderSmall?: string
       download?: string
     }
   ) {}
 
-  public static make(path: string): Picture {
+  public static make(path: string, sizeRender: Size): Picture {
     const dotenv = Dotenv.make()
     const url = dotenv.system.API_URL
     const splitted = path.split('/')
@@ -37,7 +40,7 @@ export class Picture {
     const author = `${splitCredits.shift()} ${splitCredits.shift()}`.trim()
     const token = splitCredits.shift()
 
-    const self = new Picture(filename, extension)
+    const self = new Picture(filename, extension, sizeRender)
     // self.id = Math.random().toString(36).slice(2, 16)
     // self.id = token
     self.id = self.slugify(filename)
@@ -51,9 +54,8 @@ export class Picture {
 
     const showLink = `${url}/api/pictures/${self.id}`
     self.links = {
-      show: showLink,
-      render: `${showLink}/render`,
-      download: `${showLink}/download`
+      show: `${showLink}?size=${sizeRender}`,
+      render: `${showLink}/render?size=${sizeRender}`,
     }
 
     self.credits = {

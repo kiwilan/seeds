@@ -45,6 +45,30 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
             },
           }
         },
+        picturesId: {
+          route: Router.route('/api/pictures/:id'),
+          query: {
+            size: {
+              description: 'The size of the picture',
+              type: 'string',
+              required: false,
+              default: 'large',
+              enum: [
+                'large',
+                'medium',
+                'small',
+                'tiny',
+              ],
+              extras: '`large` equals to `1920` pixels width. `medium` equals to `1280` pixels width. `small` equals to `640` pixels width. `tiny` equals to `320` pixels width.'
+            },
+            download: {
+              description: 'Download the picture',
+              type: 'boolean',
+              required: false,
+              extras: 'If `true`, the picture will be downloaded instead of being displayed.',
+            },
+          }
+        },
         meta: metaRoutes()
       }
     },

@@ -1,9 +1,19 @@
 import { FileUtilsPromises } from '@kiwilan/fastify-utils'
-import { Picture } from './picture/Picture'
+import { Picture } from '~/models/picture'
+import type { Size } from '~/types'
+
+export interface QueryParamsRaw {
+  category?: string
+  count?: string
+  size?: string
+  shuffle?: string
+}
 
 export interface QueryParams {
-  category?: string
+  category?: PictureCategory
   count?: number
+  size?: Size
+  shuffle?: boolean
 }
 
 enum PictureCategory {
@@ -28,7 +38,7 @@ enum PictureCategory {
 
 export class PictureService {
   protected constructor(
-    protected path: string = 'src/public',
+    protected path: string = 'src/public/seeds-pictures/large',
     protected query: QueryParams = {},
     protected category: PictureCategory = PictureCategory.all,
     protected categoriesAllowed: string[] = [],
@@ -36,13 +46,23 @@ export class PictureService {
     protected pictures: Picture[] = []
   ) {}
 
-  public static async make(query?: QueryParams): Promise<PictureService> {
+  public static async make(query?: QueryParamsRaw): Promise<PictureService> {
     const self = new PictureService()
 
-    query = query || { category: 'all', count: 10 }
+    const defaultQuery = { category: PictureCategory.all, count: 10, size: 'large', shuffle: true }
 
-    self.query = query
-    self.category = PictureCategory[query.category as keyof typeof PictureCategory]
+    const categoryQuery: PictureCategory = query?.category ? PictureCategory[query?.category as keyof typeof PictureCategory] : defaultQuery.category
+    const countQuery: number = query?.count ? parseInt(query?.count) : defaultQuery.count
+    const sizeQuery: Size = query?.size ? query?.size as Size : defaultQuery.size as Size
+    const shuffleQuery: boolean = query?.shuffle !== undefined ? JSON.parse(`${query?.shuffle}`) : defaultQuery.shuffle
+
+    self.query = {
+      category: categoryQuery,
+      count: countQuery,
+      size: sizeQuery,
+      shuffle: shuffleQuery,
+    }
+    self.category = self.query.category as PictureCategory
     self.categoriesAllowed = self.setCategoriesAllowed()
 
     self.files = await self.setFiles()
@@ -51,8 +71,8 @@ export class PictureService {
     return self
   }
 
-  public static async find(id: string): Promise<Picture> {
-    const self = await PictureService.make()
+  public static async find(id: string, query?: QueryParamsRaw): Promise<Picture> {
+    const self = await PictureService.make(query)
     const picture = self.files.find(picture => picture.id === id)
 
     if (!picture)
@@ -94,13 +114,16 @@ export class PictureService {
 
     const pictures: Picture[] = []
     list.forEach(el => {
-      pictures.push(Picture.make(el))
+      pictures.push(Picture.make(el, this.query.size!))
     })
 
     return pictures
   }
 
   private setCategoriesAllowed(): string[] {
+    if (!this.category)
+      this.category = PictureCategory.all
+
     const categories = {
       all: [
         PictureCategory.animal,
@@ -134,9 +157,16 @@ export class PictureService {
       ],
     }
 
+    if (
+      this.category !== PictureCategory.all
+      && this.category !== PictureCategory.architecture
+      && this.category !== PictureCategory.human
+      && this.category !== PictureCategory.wildlife
+    )
+      return [this.category]
+
     let categoriesAllowed: string[] = []
     const current: PictureCategory = this.category || [PictureCategory.all]
-    // @ts-expect-error - TS doesn't know that current is a key of categories
     categoriesAllowed = categories[current]
 
     return categoriesAllowed
@@ -158,6 +188,9 @@ export class PictureService {
   }
 
   public getPictures(): Picture[] {
-    return this.shuffle<Picture>(this.pictures)
+    if (this.query.shuffle)
+      return this.shuffle<Picture>(this.pictures)
+
+    return this.pictures
   }
 }

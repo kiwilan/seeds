@@ -23,11 +23,35 @@ cp .env.example .env
 pnpm dev
 ```
 
-### Example
+### Pictures
+
+#### Example
+
+You could use pictures from [this repo](https://gitlab.com/kiwilan/seeds-pictures).
 
 ```bash
-git clone https://gitlab.com/kiwilan/seeds-pictures ./src/public
+git clone https://gitlab.com/kiwilan/seeds-pictures ./src/public/seeds-pictures
 ```
+
+#### Your own pictures
+
+You could use your own pictures. You just need to put them in `./src/public/seeds-pictures` and respect the following structure:
+
+```bash
+src/public/seeds-pictures
+├── large
+│   ├── category-1
+│   │   ├── img-1.jpg
+│   │   └── img-2.jpg
+│   └── category-2
+│       ├── img-1.jpg
+│       └── img-2.jpg
+├── medium # let empty
+├── small # let empty
+└── tiny # let empty
+```
+
+All extra sizes (`medium`, `small`, `tiny`) will be generated automatically with `sharp`.
 
 ## Build
 
