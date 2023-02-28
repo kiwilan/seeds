@@ -9,7 +9,7 @@ specifiers:
   '@fastify/middie': ^8.1.0
   '@fastify/sensible': ^5.2.0
   '@fastify/static': ^6.9.0
-  '@kiwilan/fastify-utils': ^0.0.34
+  '@kiwilan/fastify-utils': ^0.0.40
   '@types/node': ^18.14.1
   '@types/sharp': ^0.31.1
   esbuild: ^0.17.10
@@ -41,7 +41,7 @@ dependencies:
 
 devDependencies:
   '@antfu/eslint-config': 0.35.3_7kw3g6rralp5ps6mg3uyzz6azm
-  '@kiwilan/fastify-utils': 0.0.34
+  '@kiwilan/fastify-utils': 0.0.40
   '@types/node': 18.14.1
   '@types/sharp': 0.31.1
   esbuild: 0.17.10
@@ -537,8 +537,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@kiwilan/fastify-utils/0.0.34:
-    resolution: {integrity: sha512-4u2Cx8lX5cSDWZuJjXHq7gou5LLoyIJeqnYo5RLKufG87WhWugJOtBSbUpkwtFcmYxyR1ib4iio33tbLA84tRw==}
+  /@kiwilan/fastify-utils/0.0.40:
+    resolution: {integrity: sha512-HoputJaVDjEATQSTr7Kkz4MA2Nzw7fHlNLPLfkneksj3N9IGkX7mGERXR9XfarKVXO8VcKM2iXDBLNt8ZrHhhQ==}
     hasBin: true
     dependencies:
       '@fastify/cors': 8.2.0

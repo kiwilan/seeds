@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
-    "@kiwilan/fastify-utils": "^0.0.34",
+    "@kiwilan/fastify-utils": "^0.0.40",
     "@types/node": "^18.14.1",
     "@types/sharp": "^0.31.1",
     "esbuild": "^0.17.10",

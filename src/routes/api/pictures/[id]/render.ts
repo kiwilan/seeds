@@ -19,7 +19,6 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
       }
 
       const originalPath = picture.pathFilename
-      // const path = originalPath
       const path = originalPath.replace('/large/', `/${query.size}/`)
 
       if (query.size && query.size !== 'large') {

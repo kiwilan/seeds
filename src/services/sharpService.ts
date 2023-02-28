@@ -1,10 +1,12 @@
 import { FileUtilsPromises, PathUtils } from '@kiwilan/fastify-utils'
+import type { Sharp } from 'sharp'
 import sharp from 'sharp'
 
 export class SharpService {
   protected constructor(
     protected path: string,
     protected newPath: string,
+    protected sharp?: Sharp
   ) {}
 
   public static make(path: string, newPath: string): SharpService {
@@ -12,22 +14,21 @@ export class SharpService {
     newPath = PathUtils.getFromRoot(`src/public/${newPath}`)
     const self = new SharpService(path, newPath)
 
+    self.sharp = sharp(path)
+
     return self
   }
 
-  public async resize(size: number): Promise<Buffer | true> {
+  public async resize(size: number): Promise<void> {
     if (await this.fileExists())
-      return true
+      return
 
-    const img = await sharp(this.path)
-      .rotate()
+    const img = await this.sharp!
       .resize(size)
       .jpeg({ mozjpeg: true })
       .toBuffer()
 
     await this.save(img)
-
-    return img
   }
 
   private async fileExists(): Promise<boolean> {
