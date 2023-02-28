@@ -3,6 +3,7 @@ import { Router } from '@kiwilan/fastify-utils'
 import type { QueryParamsRaw } from '~/services/pictureService'
 import { PictureService } from '~/services/pictureService'
 import { metaRoutes } from '~/services'
+import { picturesDocs } from '~/docs'
 
 const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.route({
@@ -15,7 +16,8 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
       return {
         data: service.getPictures(),
         count: service.getPictures().length,
-        meta: metaRoutes()
+        docs: picturesDocs(),
+        meta: metaRoutes(),
       }
     },
   })

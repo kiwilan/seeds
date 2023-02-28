@@ -82,13 +82,16 @@ export class PictureService {
   }
 
   private setPictures(): Picture[] {
-    const originalList: Picture[] = []
+    let originalList: Picture[] = []
     const finalList: Picture[] = []
 
     this.files.forEach(picture => {
       if (picture.category && this.categoriesAllowed.includes(picture.category))
         originalList.push(picture)
     })
+
+    if (this.query.shuffle)
+      originalList = this.shuffle<Picture>(originalList)
 
     if (this.query.count) {
       if (this.query.count < originalList.length) {
@@ -188,9 +191,6 @@ export class PictureService {
   }
 
   public getPictures(): Picture[] {
-    if (this.query.shuffle)
-      return this.shuffle<Picture>(this.pictures)
-
     return this.pictures
   }
 }
