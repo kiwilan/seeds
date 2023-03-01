@@ -1,10 +1,12 @@
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { symlink } from 'fs/promises'
-import { Dotenv, LocalServer, PathUtils } from '@kiwilan/fastify-utils'
+import { Environment, FileUtilsPromises, LocalServer, PathUtils } from '@kiwilan/fastify-utils'
 import { fastifyStatic } from '@fastify/static'
 
 const server = LocalServer.make()
+
+console.log(process.env.BASE_URL, process.env.PORT)
 
 server.start({
   apiKeyProtect: '/api',
@@ -17,10 +19,12 @@ server.start({
       prefix: '/public',
     })
 
-    const dotenv = Dotenv.make()
-    if (!dotenv.system.IS_DEV) {
+    const env = Environment.make()
+    if (!env.system.IS_DEV) {
       const root = PathUtils.getFromRoot('src/public')
-      await symlink(root, root.replace('src', 'build'))
+      const symLinkPath = root.replace('src', 'build')
+      await FileUtilsPromises.removeDirectory(symLinkPath)
+      await symlink(root, symLinkPath)
     }
   },
   // autoMiddleware: (query) => [

@@ -2,6 +2,7 @@ import type { FastifyPluginAsync } from 'fastify'
 import { Router } from '@kiwilan/fastify-utils'
 import { PictureService } from '~/services/pictureService'
 import type { Size } from '~/types'
+import { SharpService } from '~/services/sharpService'
 
 const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.route({
@@ -27,8 +28,8 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
           medium: 1280,
         }
 
-        // await SharpService.make(originalPath, path)
-        //   .resize(sizes[query.size])
+        await SharpService.make(originalPath, path)
+          .resize(sizes[query.size])
       }
 
       if (query.download)

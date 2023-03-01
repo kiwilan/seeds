@@ -31,3 +31,12 @@ docker run -d -p 3000:3000 seeds:latest
 ```bash
 docker run --network="host" seeds:latest
 ```
+
+## Clean
+
+```bash
+docker ps -aq
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker rmi $(docker images -q)
+```

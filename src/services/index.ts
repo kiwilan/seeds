@@ -1,6 +1,4 @@
-import { Dotenv, Router } from '@kiwilan/fastify-utils'
-
-const config = Dotenv.make()
+import { Router } from '@kiwilan/fastify-utils'
 
 const metaRoutes = () => {
   return {

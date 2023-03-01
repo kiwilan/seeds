@@ -26,7 +26,8 @@
     "config": "node setup.js",
     "dev": "npm run config && NODE_ENV=development tsx watch src .env",
     "build": "rimraf build && npm run config && NODE_ENV=production tsx setup.js && npm run check:types",
-    "start": "npm run build && node build/index.mjs",
+    "docker:build": "NODE_ENV=production tsx setup.js",
+    "start": "node build/index.mjs",
     "pm2": "pm2 start --name 'seeds' './build/index.mjs'",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -39,7 +40,7 @@
     "@fastify/middie": "^8.1.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.9.0",
-    "@kiwilan/fastify-utils": "^0.0.46",
+    "@kiwilan/fastify-utils": "^0.0.61",
     "fastify": "^4.13.0",
     "fastify-plugin": "^4.5.0",
     "rimraf": "^4.1.2",

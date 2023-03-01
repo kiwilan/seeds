@@ -1,14 +1,12 @@
 version: '3'
 services:
-  seeds:
+  fastify:
     build: .
-    # image: seeds/node
-    container_name: apps
+    container_name: fastify
     ports:
-      - '3000:3000'
-  # nginx:
-  #   build: ./nginx
-  #   image: tiotobing/nginx
-  #   container_name: nginx
-  #   ports:
-  #     - 80:80
+      - '80:80'
+  nginx:
+    build: ./docker
+    container_name: nginx
+    ports:
+      - 80:80
