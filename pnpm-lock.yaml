@@ -9,7 +9,7 @@ specifiers:
   '@fastify/middie': ^8.1.0
   '@fastify/sensible': ^5.2.0
   '@fastify/static': ^6.9.0
-  '@kiwilan/fastify-utils': ^0.0.64
+  '@kiwilan/fastify-utils': ^0.0.65
   '@types/node': ^18.14.1
   '@types/sharp': ^0.31.1
   esbuild: ^0.17.10
@@ -34,7 +34,7 @@ dependencies:
   '@fastify/middie': 8.1.0
   '@fastify/sensible': 5.2.0
   '@fastify/static': 6.9.0
-  '@kiwilan/fastify-utils': 0.0.64
+  '@kiwilan/fastify-utils': 0.0.65
   fastify: 4.13.0
   fastify-plugin: 4.5.0
   rimraf: 4.1.2
@@ -522,8 +522,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@kiwilan/fastify-utils/0.0.64:
-    resolution: {integrity: sha512-boI208gPZrrm+iO7MW8cmFDRKOP4NEkTKdOzzCWvNjv7aCMff3siFixukKqKCBozOrcKYefvZM4FxLnBLISsaQ==}
+  /@kiwilan/fastify-utils/0.0.65:
+    resolution: {integrity: sha512-r0jktISqy/ebdpCdZHwMU/x3NZrz9dhjBoSOcCqdwnu17UGnukBNAesRva4hvCQalLJyaEaYSob86J+X4P92iw==}
     hasBin: true
     dependencies:
       '@fastify/cors': 8.2.0
