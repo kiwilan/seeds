@@ -11,12 +11,12 @@ jobs:
     name: eslint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
           version: 7
           run_install: false
+      - uses: actions/checkout@v2
       - name: Run ESLint
         run: eslint . --ext .js,.jsx,.ts,.tsx
