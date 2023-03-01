@@ -1,28 +1,20 @@
 FROM node:16
-# FROM node:lts-alpine
 
 WORKDIR /app
 
-RUN npm install -g pnpm npm
-
-# COPY package.json pnpm-lock.yaml ./
-
-# RUN pnpm install --ignore-scripts
+RUN npm install -g pnpm npm pm2
 
 COPY . .
 
 RUN pnpm install
-RUN pnpm build
-
-# RUN npx tsx setup.js
+RUN pnpm docker:build
 
 # ENV NODE_ENV=production
 ENV BASE_URL=0.0.0.0
 ENV LOG_LEVEL=error
-ENV PORT=80
+ENV PORT=3000
 ENV NPM_CONFIG_LOGLEVEL=warn
 
-EXPOSE 80
+EXPOSE 3000
 
-CMD ["npm", "start"]
-# CMD ["node", "build/index.mjs"]
+CMD [ "pm2-runtime", "start", "npm", "--", "start" ]

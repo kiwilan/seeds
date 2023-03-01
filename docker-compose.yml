@@ -1,10 +1,10 @@
 version: '3'
 services:
-  fastify:
+  nodejs:
     build: .
     container_name: fastify
-    ports:
-      - '80:80'
+    # ports:
+    #   - '3000:80'
   nginx:
     build: ./docker
     container_name: nginx
