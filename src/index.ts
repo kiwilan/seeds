@@ -1,10 +1,10 @@
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { symlink } from 'fs/promises'
-import { Dotenv, PathUtils, Server } from '@kiwilan/fastify-utils'
+import { Dotenv, LocalServer, PathUtils } from '@kiwilan/fastify-utils'
 import { fastifyStatic } from '@fastify/static'
 
-const server = Server.make()
+const server = LocalServer.make()
 
 server.start({
   apiKeyProtect: '/api',

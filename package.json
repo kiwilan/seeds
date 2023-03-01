@@ -1,11 +1,11 @@
 {
-  "name": "fastify-template",
+  "name": "seeds",
   "type": "module",
   "version": "1.0.0",
   "description": "Fastify template.",
   "author": {
-    "name": "Author name",
-    "email": "author@mail.com"
+    "name": "Ewilan Rivière",
+    "email": "ewilan.riviere@gmail.com"
   },
   "license": "MIT",
   "homepage": "https://github.com/kiwilan/fastify-template#readme",
@@ -39,6 +39,7 @@
     "@fastify/middie": "^8.1.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.9.0",
+    "@kiwilan/fastify-utils": "^0.0.46",
     "fastify": "^4.13.0",
     "fastify-plugin": "^4.5.0",
     "rimraf": "^4.1.2",
@@ -46,7 +47,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
-    "@kiwilan/fastify-utils": "^0.0.40",
     "@types/node": "^18.14.1",
     "@types/sharp": "^0.31.1",
     "esbuild": "^0.17.10",

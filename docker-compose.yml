@@ -1,0 +1,14 @@
+version: '3'
+services:
+  seeds:
+    build: .
+    # image: seeds/node
+    container_name: apps
+    ports:
+      - '3000:3000'
+  # nginx:
+  #   build: ./nginx
+  #   image: tiotobing/nginx
+  #   container_name: nginx
+  #   ports:
+  #     - 80:80
