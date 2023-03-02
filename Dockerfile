@@ -9,11 +9,13 @@ COPY . .
 RUN pnpm install
 RUN pnpm docker:build
 
-# ENV NODE_ENV=production
-ENV HOST=0.0.0.0
-ENV LOG_LEVEL=error
-ENV PORT=3000
 ENV NPM_CONFIG_LOGLEVEL=warn
+ENV LOG_LEVEL=debug
+ENV BASE_URL=localhost
+ENV HOST=0.0.0.0
+ENV PORT=3000
+ENV HTTPS=false
+ENV API_KEY=
 
 EXPOSE 3000
 

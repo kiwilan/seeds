@@ -40,7 +40,7 @@
     "@fastify/middie": "^8.1.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.9.0",
-    "@kiwilan/fastify-utils": "^0.0.68",
+    "@kiwilan/fastify-utils": "^0.0.71",
     "fastify": "^4.13.0",
     "fastify-plugin": "^4.5.0",
     "rimraf": "^4.1.2",

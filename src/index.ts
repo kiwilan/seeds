@@ -6,6 +6,8 @@ import { fastifyStatic } from '@fastify/static'
 
 const server = LocalServer.make()
 
+console.log(process.env)
+
 server.start({
   apiKeyProtect: '/api',
   register: async (fastify) => {
