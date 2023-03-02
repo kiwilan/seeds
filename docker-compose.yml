@@ -1,0 +1,10 @@
+version: '3'
+services:
+  nodejs:
+    build: .
+    container_name: nodejs
+  nginx:
+    build: ./docker
+    container_name: nginx
+    ports:
+      - 80:80

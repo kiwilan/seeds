@@ -1,0 +1,24 @@
+name: ESLint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: pnpm install --ignore-scripts
+      - name: Run ESLint
+        run: npm run lint
