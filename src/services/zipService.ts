@@ -1,6 +1,6 @@
 import { createWriteStream } from 'fs'
 import archiver from 'archiver'
-import { FileUtilsPromises, PathUtils } from '@kiwilan/fastify-utils'
+import { FsFile, FsPath } from '@kiwilan/filesystem'
 import { PictureService } from './pictureService'
 import { SharpService } from './sharpService'
 import type { Size } from '~/types'
@@ -37,15 +37,13 @@ export class ZipService {
     if (!pictures)
       return
 
-    const files = await FileUtilsPromises.readDirRecursively(
-      PathUtils.getFromRoot(`src/public/seeds-pictures/${size}`)
-    )
+    const files = await FsFile.allFiles(FsPath.root(`src/public/seeds-pictures/${size}`))
 
     if (pictures.length !== files.length) {
-      const path = PathUtils.getFromRoot(`src/public/seeds-pictures/${size}`)
-      await FileUtilsPromises.clearDirectory(path)
+      const path = FsPath.root(`src/public/seeds-pictures/${size}`)
+      await FsFile.cleanDirectory(path)
 
-      Promise.all(pictures.map(async (picture) => {
+      await Promise.all(pictures.map(async (picture) => {
         if (picture.pathFilename) {
           const sharp = SharpService.make(picture.pathFilename, size)
           await sharp.resize()
@@ -61,8 +59,8 @@ export class ZipService {
   }
 
   private async createZip() {
-    const path = PathUtils.getFromRoot('src/public/target.zip')
-    await FileUtilsPromises.removeDirectory(path)
+    const path = FsPath.root('src/public/target.zip')
+    await FsFile.deleteDirectory(path)
 
     const output = createWriteStream(path)
     const archive = archiver('zip')
@@ -78,7 +76,7 @@ export class ZipService {
 
     archive.pipe(output)
 
-    const pictures = PathUtils.getFromRoot('src/public/seeds-pictures')
+    const pictures = FsPath.root('src/public/seeds-pictures')
     archive.directory(pictures, false)
 
     archive.finalize()

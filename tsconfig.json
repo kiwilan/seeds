@@ -1,38 +1,24 @@
-// {
-//   "extends": "./.fastify/tsconfig.json",
-//   "compilerOptions": {
-//     "paths": {
-//       "~/*": ["./src/*"],
-//       "@/*": ["./*"]
-//     }
-//   },
-//   "include": ["src/**/*.ts", "src/services/Compiler.ts"]
-// }
 {
+  "extends": "./.fastify/tsconfig.json",
   "compilerOptions": {
-    "target": "es2020",
-    "module": "es2020",
-    "allowJs": true,
-    "removeComments": true,
-    "resolveJsonModule": true,
-    "typeRoots": ["./node_modules/@types"],
-    "sourceMap": true,
-    "outDir": "dist",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
     "strict": true,
-    "lib": ["es2020"],
-    "baseUrl": ".",
-    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "moduleResolution": "Node",
     "skipLibCheck": true,
+    "noImplicitAny": false,
+    "lib": ["es2020"],
+    "types": ["node"],
+    "typeRoots": ["./node_modules/@types", "src/**/*.d.ts"],
     "paths": {
       "@functions/*": ["./src/functions/*"],
       "~/*": ["./src/*"],
       "@/*": ["./*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "**/*.d.ts"],
   "exclude": ["node_modules"]
 }

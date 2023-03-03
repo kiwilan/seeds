@@ -1,10 +1,10 @@
 import { Router } from '@kiwilan/fastify-utils'
 
-const metaRoutes = () => {
+const metaRoutes = async () => {
   return {
-    home: Router.route('/api'),
-    pictures: Router.route('/api/pictures'),
-    docs: Router.route('/api/docs'),
+    home: await Router.route('/api'),
+    pictures: await Router.route('/api/pictures'),
+    docs: await Router.route('/api/docs'),
   }
 }
 

@@ -1,7 +1,7 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { Router } from '@kiwilan/fastify-utils'
-import { metaRoutes } from '~/services'
 import { picturesDocs, picturesIdDocs } from '~/docs'
+import { metaRoutes } from '~/services'
 
 const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.route({
@@ -11,7 +11,7 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
       return {
         pictures: picturesDocs(),
         picturesId: picturesIdDocs(),
-        meta: metaRoutes()
+        meta: await metaRoutes()
       }
     },
   })

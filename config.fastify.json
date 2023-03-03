@@ -1,4 +1,6 @@
 {
   "$schema": "./node_modules/fastify-utils/lib/schema.json",
-  "dotenv": {}
+  "dotenv": {
+    "CUSTOM_ENV": "CUSTOM_ENV"
+  }
 }

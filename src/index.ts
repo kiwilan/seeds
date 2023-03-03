@@ -1,28 +1,28 @@
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
-import { symlink } from 'fs/promises'
-import { Environment, FileUtilsPromises, LocalServer, PathUtils } from '@kiwilan/fastify-utils'
+// import { dirname, join } from 'path'
+// import { fileURLToPath } from 'url'
+// import { symlink } from 'fs/promises'
+// import { Environment, LocalServer } from '@kiwilan/fastify-utils'
 import { fastifyStatic } from '@fastify/static'
+import { Environment, LocalServer } from '@kiwilan/fastify-utils'
+import { FsFile, FsPath } from '@kiwilan/filesystem'
 
-const server = LocalServer.make()
-
-server.start({
+LocalServer.run({
   apiKeyProtect: '/api',
   register: async (fastify) => {
-    const __filename = fileURLToPath(import.meta.url)
-    const __dirname = dirname(__filename)
+    // const __filename = fileURLToPath(import.meta.url)
+    // const __dirname = dirname(__filename)
 
     fastify.register(fastifyStatic, {
-      root: join(__dirname, 'public'),
+      root: FsPath.root('src/public'),
       prefix: '/public',
     })
 
-    const env = Environment.make()
+    const env = await Environment.make()
     if (!env.system.IS_DEV) {
-      const root = PathUtils.getFromRoot('src/public')
+      const root = FsPath.root('src/public')
       const symLinkPath = root.replace('src', 'build')
-      await FileUtilsPromises.removeDirectory(symLinkPath)
-      await symlink(root, symLinkPath)
+      await FsFile.deleteDirectory(symLinkPath)
+      await FsFile.link(root, symLinkPath)
     }
   },
   // autoMiddleware: (query) => [

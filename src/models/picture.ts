@@ -26,8 +26,8 @@ export class Picture {
     }
   ) {}
 
-  public static make(path: string, sizeRender: Size): Picture {
-    const env = Environment.make()
+  public static async make(path: string, sizeRender: Size): Promise<Picture> {
+    const env = await Environment.make()
     const url = env.system.API_URL
     const splitted = path.split('/')
 

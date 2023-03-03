@@ -1,4 +1,4 @@
-import { FileUtilsPromises, PathUtils } from '@kiwilan/fastify-utils'
+import { FsFile, FsPath } from '@kiwilan/filesystem'
 import type { Sharp } from 'sharp'
 import sharp from 'sharp'
 import type { Size } from '~/types'
@@ -18,7 +18,7 @@ export class SharpService {
     const sizeQuery: string = SizeConvert[size as keyof typeof SizeConvert] as string
     const sizeWidth: number = parseInt(sizeQuery)
 
-    const originalPath = PathUtils.getFromRoot(`src/public/${origin}`)
+    const originalPath = FsPath.root(`src/public/${origin}`)
     let newPath = originalPath
     newPath = originalPath.replace('/large/', `/${size}/`)
 
@@ -26,7 +26,7 @@ export class SharpService {
 
     self.size = sizeWidth
     self.sharp = sharp(originalPath)
-    self.newPathOrigin = newPath.replace(PathUtils.getFromRoot('src/public'), '')
+    self.newPathOrigin = newPath.replace(FsPath.root('src/public'), '')
 
     return self
   }
@@ -60,10 +60,10 @@ export class SharpService {
   }
 
   private async fileExists(): Promise<boolean> {
-    return await FileUtilsPromises.checkIfFileExists(this.newPath)
+    return await FsFile.exists(this.newPath)
   }
 
   private async save(b: Buffer) {
-    await FileUtilsPromises.createFile(this.newPath, b)
+    await FsFile.put(this.newPath, b)
   }
 }

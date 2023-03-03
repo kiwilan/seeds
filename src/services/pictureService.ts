@@ -1,4 +1,4 @@
-import { FileUtilsPromises } from '@kiwilan/fastify-utils'
+import { FsFile } from '@kiwilan/filesystem'
 import { Picture } from '~/models/picture'
 import { PictureCategory } from '~/types'
 import type { Size } from '~/types'
@@ -94,12 +94,16 @@ export class PictureService {
   }
 
   private async setFiles(): Promise<Picture[]> {
-    const list = await FileUtilsPromises.readDirRecursively(this.path, ['.jpg'])
+    const list = await FsFile.allFilesGlob({
+      directory: this.path,
+      extensions: ['jpg'],
+    })
 
     const pictures: Picture[] = []
-    list.forEach(el => {
-      pictures.push(Picture.make(el, this.query.size!))
-    })
+    await Promise.all(list.map(async el => {
+      const picture = await Picture.make(el.path, this.query.size!)
+      pictures.push(picture)
+    }))
 
     return pictures
   }

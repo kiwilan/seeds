@@ -26,3 +26,7 @@ export enum PictureCategory {
   human = 'human', // cultural, people, relationship
   wildlife = 'wildlife', // animal, nature, space
 }
+
+// export declare namespace Route {
+//   export type Endpoint = '/api/docs' | '/api' | '/api/pictures/:id' | '/api/pictures/:id/render' | '/api/pictures' | '/api/pictures/zip' | '/'
+// }
