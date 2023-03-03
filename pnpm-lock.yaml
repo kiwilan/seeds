@@ -9,8 +9,8 @@ specifiers:
   '@fastify/middie': ^8.1.0
   '@fastify/sensible': ^5.2.0
   '@fastify/static': ^6.9.0
-  '@kiwilan/fastify-utils': ^0.1.0
-  '@kiwilan/filesystem': ^0.0.10
+  '@kiwilan/fastify-utils': ^0.1.10
+  '@kiwilan/filesystem': ^0.0.11
   '@types/archiver': ^5.3.1
   '@types/node': ^18.14.5
   '@types/sharp': ^0.31.1
@@ -37,8 +37,8 @@ dependencies:
   '@fastify/middie': 8.1.0
   '@fastify/sensible': 5.2.0
   '@fastify/static': 6.9.0
-  '@kiwilan/fastify-utils': 0.1.0
-  '@kiwilan/filesystem': 0.0.10
+  '@kiwilan/fastify-utils': 0.1.10
+  '@kiwilan/filesystem': 0.0.11
   archiver: 5.3.1
   fastify: 4.14.0
   fastify-plugin: 4.5.0
@@ -533,14 +533,14 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@kiwilan/fastify-utils/0.1.0:
-    resolution: {integrity: sha512-7OuLsIXYLTZB9Lz2M0wrST5hS2vRfmH2pmO4/xAcJs3bkKMcMeLcCqUeAzte9WpxSWxd/JAMIFA0QCzx1PxTGQ==}
+  /@kiwilan/fastify-utils/0.1.10:
+    resolution: {integrity: sha512-79OMJDRXt30MXGSVF8Ik4ZAU4i0WvaXPZ+aL05no3wvKgbkdQuYeWt3sacpQIX6+r53UHQs7HKTjCvp1HZr/5w==}
     hasBin: true
     dependencies:
       '@fastify/cors': 8.2.0
       '@fastify/env': 4.2.0
       '@fastify/middie': 8.1.0
-      '@kiwilan/filesystem': file:../../kiwilan-filesystem-*.tgz
+      '@kiwilan/filesystem': 0.0.11
       chalk: 5.2.0
       commander: 10.0.0
       conf: 11.0.1
@@ -554,8 +554,8 @@ packages:
       - supports-color
     dev: false
 
-  /@kiwilan/filesystem/0.0.10:
-    resolution: {integrity: sha512-yRIwY2RR3z2i8gfY6Y500GdLOz8wp8GJkvXqGImGKumZMBUST8zbxiTlMNaSthvTBoS7AYTbCeyH0PFO5vVI4A==}
+  /@kiwilan/filesystem/0.0.11:
+    resolution: {integrity: sha512-NPnF2sPjlrxAcOBorqL2IsfJTofduCoB99lVX+SVucwugTMD2N9XHuEr4qVbqvBCWY85t3Rt1/neRwZYPjOdIA==}
     dependencies:
       glob: 9.2.1
       md5: 2.3.0
@@ -3811,14 +3811,4 @@ packages:
       archiver-utils: 2.1.0
       compress-commons: 4.1.1
       readable-stream: 3.6.1
-    dev: false
-
-  file:../../kiwilan-filesystem-*.tgz:
-    resolution: {integrity: sha512-FifIGh2hNAAq3qH/qVggJO9GC5OgxVsJBXncfyA1gPMfG4fTA0IEKsR7K/aM7gsISP4P1NWZ7/EBJQTqmbpjmg==, tarball: file:../../kiwilan-filesystem-*.tgz}
-    name: '@kiwilan/filesystem'
-    version: 0.0.1
-    dependencies:
-      glob: 9.2.1
-      md5: 2.3.0
-      mime-types: 2.1.35
     dev: false
