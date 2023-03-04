@@ -1,24 +1,16 @@
 {
   "extends": "./.fastify/tsconfig.json",
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "strict": true,
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "noImplicitAny": false,
-    "lib": ["es2020"],
-    "types": ["node"],
-    "typeRoots": ["./node_modules/@types", "src/**/*.d.ts"],
     "paths": {
-      "@functions/*": ["./src/functions/*"],
-      "~/*": ["./src/*"],
-      "@/*": ["./*"]
+      "~/*": [
+        "./src/*"
+      ],
+      "@/*": [
+        "./*"
+      ]
     }
   },
-  "include": ["src/**/*", "**/*.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "src/**/*.ts"
+  ]
 }

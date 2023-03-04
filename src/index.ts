@@ -1,5 +1,5 @@
 import { fastifyStatic } from '@fastify/static'
-import { Environment, LocalServer } from '@kiwilan/fastify-utils'
+import { LocalServer } from '@kiwilan/fastify-utils'
 import { FsFile, FsPath } from '@kiwilan/filesystem'
 
 LocalServer.run({
@@ -10,8 +10,7 @@ LocalServer.run({
       prefix: '/public',
     })
 
-    const env = await Environment.make()
-    if (!env.system.IS_DEV) {
+    if (!dotenv.IS_DEV) {
       const root = FsPath.root('src/public')
       const symLinkPath = root.replace('src', 'build')
       await FsFile.deleteDirectory(symLinkPath)
