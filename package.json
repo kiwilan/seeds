@@ -40,7 +40,7 @@
     "@fastify/middie": "^8.1.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.9.0",
-    "@kiwilan/fastify-utils": "file:~/kiwilan-fastify-utils-*.tgz",
+    "@kiwilan/fastify-utils": "^0.1.15",
     "@kiwilan/filesystem": "^0.0.15",
     "archiver": "^5.3.1",
     "fastify": "^4.14.0",

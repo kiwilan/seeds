@@ -9,7 +9,7 @@ specifiers:
   '@fastify/middie': ^8.1.0
   '@fastify/sensible': ^5.2.0
   '@fastify/static': ^6.9.0
-  '@kiwilan/fastify-utils': file:~/kiwilan-fastify-utils-*.tgz
+  '@kiwilan/fastify-utils': ^0.1.15
   '@kiwilan/filesystem': ^0.0.15
   '@types/archiver': ^5.3.1
   '@types/node': ^18.14.6
@@ -37,7 +37,7 @@ dependencies:
   '@fastify/middie': 8.1.0
   '@fastify/sensible': 5.2.0
   '@fastify/static': 6.9.0
-  '@kiwilan/fastify-utils': file:../../kiwilan-fastify-utils-*.tgz
+  '@kiwilan/fastify-utils': 0.1.15
   '@kiwilan/filesystem': 0.0.15
   archiver: 5.3.1
   fastify: 4.14.0
@@ -528,12 +528,25 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@kiwilan/filesystem/0.0.14:
-    resolution: {integrity: sha512-9JIeAfAZHpLfAf+1bOlo8QQ3IS9aZYy0j0ByOn5f5wO62uawPFxTJ6w6mZan1NkRp0LGBN2xQQSOlaYODDtluw==}
+  /@kiwilan/fastify-utils/0.1.15:
+    resolution: {integrity: sha512-RuXeuY4AzzItC+yBkB9j3Zm1MlNeDCtRprWxsZVT1tZhk1wuTYBNjlXalb20E33DHpiNTLBWTbsboVcc/neYkA==}
+    hasBin: true
     dependencies:
-      glob: 9.2.1
+      '@fastify/cors': 8.2.0
+      '@fastify/env': 4.2.0
+      '@fastify/middie': 8.1.0
+      '@kiwilan/filesystem': 0.0.15
+      chalk: 5.2.0
+      commander: 10.0.0
+      conf: 11.0.1
+      esbuild: 0.17.11
+      esbuild-plugin-pino: 1.2.8
+      fastify: 4.14.0
       md5: 2.3.0
-      mime-types: 2.1.35
+      ofetch: 1.0.1
+      tiny-glob: 0.2.9
+    transitivePeerDependencies:
+      - supports-color
     dev: false
 
   /@kiwilan/filesystem/0.0.15:
@@ -3816,27 +3829,4 @@ packages:
       archiver-utils: 2.1.0
       compress-commons: 4.1.1
       readable-stream: 3.6.1
-    dev: false
-
-  file:../../kiwilan-fastify-utils-*.tgz:
-    resolution: {integrity: sha512-1sBpxEJPKPR/29g3aDypF75rjWhOPcTx04dY6lNr1kFSt5tGBrAQqVm720srYO6L/ZylUe4TFEmFabHdYUpvYg==, tarball: file:../../kiwilan-fastify-utils-*.tgz}
-    name: '@kiwilan/fastify-utils'
-    version: 0.1.14
-    hasBin: true
-    dependencies:
-      '@fastify/cors': 8.2.0
-      '@fastify/env': 4.2.0
-      '@fastify/middie': 8.1.0
-      '@kiwilan/filesystem': 0.0.14
-      chalk: 5.2.0
-      commander: 10.0.0
-      conf: 11.0.1
-      esbuild: 0.17.11
-      esbuild-plugin-pino: 1.2.8
-      fastify: 4.14.0
-      md5: 2.3.0
-      ofetch: 1.0.1
-      tiny-glob: 0.2.9
-    transitivePeerDependencies:
-      - supports-color
     dev: false
