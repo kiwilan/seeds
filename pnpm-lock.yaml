@@ -18,7 +18,6 @@ specifiers:
   esbuild: ^0.17.11
   esbuild-plugin-pino: 1.2.8
   eslint: ^8.35.0
-  eslint-plugin-jsdoc: ^40.0.1
   fastify: ^4.14.0
   fastify-plugin: ^4.5.0
   ofetch: ^1.0.1
@@ -53,7 +52,6 @@ devDependencies:
   esbuild: 0.17.11
   esbuild-plugin-pino: 1.2.8
   eslint: 8.35.0
-  eslint-plugin-jsdoc: 40.0.1_eslint@8.35.0
   ofetch: 1.0.1
   pino: 8.11.0
   pino-pretty: 9.4.0
@@ -177,15 +175,6 @@ packages:
       '@babel/helper-validator-identifier': 7.19.1
       chalk: 2.4.2
       js-tokens: 4.0.0
-    dev: true
-
-  /@es-joy/jsdoccomment/0.36.1:
-    resolution: {integrity: sha512-922xqFsTpHs6D0BUiG4toiyPOMc8/jafnWKxz1KWgS4XzKPy2qXf1Pe6UFuNSCQqt6tOuhAWXBNuuyUhJmw9Vg==}
-    engines: {node: ^14 || ^16 || ^17 || ^18 || ^19}
-    dependencies:
-      comment-parser: 1.3.1
-      esquery: 1.5.0
-      jsdoc-type-pratt-parser: 3.1.0
     dev: true
 
   /@esbuild-kit/cjs-loader/2.4.2:
@@ -1121,11 +1110,6 @@ packages:
     engines: {node: '>=14'}
     dev: false
 
-  /comment-parser/1.3.1:
-    resolution: {integrity: sha512-B52sN2VNghyq5ofvUsqZjmk6YkihBX5vMSChmSK9v4ShjKf3Vk5Xcmgpw4o+iIgtrnM/u5FiMpz9VKb8lpBveA==}
-    engines: {node: '>= 12.0.0'}
-    dev: true
-
   /compress-commons/4.1.1:
     resolution: {integrity: sha512-QLdDLCKNV2dtoTorqgxngQCMA+gWXkM/Nwu7FpeBhk/RdkzimqC3jueb/FDmaZeXh+uby1jkBqE3xArsLBE5wQ==}
     engines: {node: '>= 10'}
@@ -1604,24 +1588,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
-    dev: true
-
-  /eslint-plugin-jsdoc/40.0.1_eslint@8.35.0:
-    resolution: {integrity: sha512-KkiRInury7YrjjV5aCHDxwsPy6XFt5p2b2CnpDMITnWs8patNPf5kj24+VXIWw45kP6z/B0GOKfrYczB56OjQQ==}
-    engines: {node: ^14 || ^16 || ^17 || ^18 || ^19}
-    peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0
-    dependencies:
-      '@es-joy/jsdoccomment': 0.36.1
-      comment-parser: 1.3.1
-      debug: 4.3.4
-      escape-string-regexp: 4.0.0
-      eslint: 8.35.0
-      esquery: 1.5.0
-      semver: 7.3.8
-      spdx-expression-parse: 3.0.1
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /eslint-plugin-jsonc/2.6.0_eslint@8.35.0:
@@ -2533,11 +2499,6 @@ packages:
     hasBin: true
     dependencies:
       argparse: 2.0.1
-    dev: true
-
-  /jsdoc-type-pratt-parser/3.1.0:
-    resolution: {integrity: sha512-MgtD0ZiCDk9B+eI73BextfRrVQl0oyzRG8B2BjORts6jbunj4ScKPcyXGTbB6eXL4y9TzxCm6hyeLq/2ASzNdw==}
-    engines: {node: '>=12.0.0'}
     dev: true
 
   /jsesc/0.5.0:

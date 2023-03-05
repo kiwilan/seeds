@@ -25,8 +25,6 @@ export class ZipService {
       self.resizePictures(path)
     }))
 
-    console.log('ready')
-
     // await self.createZip()
 
     return self

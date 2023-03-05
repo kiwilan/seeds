@@ -56,7 +56,6 @@
     "esbuild": "^0.17.11",
     "esbuild-plugin-pino": "1.2.8",
     "eslint": "^8.35.0",
-    "eslint-plugin-jsdoc": "^40.0.1",
     "ofetch": "^1.0.1",
     "pino": "^8.11.0",
     "pino-pretty": "^9.4.0",
