@@ -1,5 +1,4 @@
 import { statSync } from 'fs'
-import { Environment } from '@kiwilan/fastify-utils'
 import type { Size } from '~/types'
 
 export class Picture {
@@ -27,8 +26,7 @@ export class Picture {
   ) {}
 
   public static async make(path: string, sizeRender: Size): Promise<Picture> {
-    const env = await Environment.make()
-    const url = env.system.API_URL
+    const url = dotenv.API_URL
     const splitted = path.split('/')
 
     const file = splitted[splitted.length - 1] || 'unknown'

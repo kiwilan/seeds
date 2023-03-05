@@ -1,6 +1,4 @@
 {
   "$schema": "./.fastify/config.schema.json",
-  "dotenv": {
-    "CUSTOM_ENV": "string"
-  }
+  "dotenv": {}
 }

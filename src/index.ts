@@ -1,5 +1,5 @@
-import { fastifyStatic } from '@fastify/static'
 import { LocalServer } from '@kiwilan/fastify-utils'
+import fastifyStatic from '@fastify/static'
 import { FsFile, FsPath } from '@kiwilan/filesystem'
 
 LocalServer.run({
@@ -17,13 +17,4 @@ LocalServer.run({
       await FsFile.link(root, symLinkPath)
     }
   },
-  // autoMiddleware: (query) => [
-  //   {
-  //     endpoint: '/api/pictures',
-  //     condition: query?.url === undefined,
-  //     abort: true,
-  //     code: 500,
-  //     message: '`url` query is required.',
-  //   }
-  // ],
 })

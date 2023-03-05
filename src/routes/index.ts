@@ -7,7 +7,7 @@ export default Router.newRoute({
     return {
       title: 'Seeds API',
       description: 'A simple API to get random pictures for seeds and fake data.',
-      meta: await metaRoutes()
+      meta: metaRoutes()
     }
   }
 })

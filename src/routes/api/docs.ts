@@ -11,7 +11,7 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
       return {
         pictures: picturesDocs(),
         picturesId: picturesIdDocs(),
-        meta: await metaRoutes()
+        meta: metaRoutes()
       }
     },
   })

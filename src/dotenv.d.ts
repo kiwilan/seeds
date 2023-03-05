@@ -9,7 +9,6 @@ interface Dotenv {
   BASE_URL: string,
   HTTPS: boolean,
   API_KEY: string | false,
-  CUSTOM_ENV: string,
   NODE_ENV: NodeEnv,
   IS_DEV: boolean,
   HOST: string,
