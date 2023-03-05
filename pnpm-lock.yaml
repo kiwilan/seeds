@@ -9,8 +9,8 @@ specifiers:
   '@fastify/middie': ^8.1.0
   '@fastify/sensible': ^5.2.0
   '@fastify/static': ^6.9.0
-  '@kiwilan/fastify-utils': ^0.1.13
-  '@kiwilan/filesystem': ^0.0.12
+  '@kiwilan/fastify-utils': file:~/kiwilan-fastify-utils-*.tgz
+  '@kiwilan/filesystem': ^0.0.15
   '@types/archiver': ^5.3.1
   '@types/node': ^18.14.6
   '@types/sharp': ^0.31.1
@@ -23,6 +23,7 @@ specifiers:
   ofetch: ^1.0.1
   pino: ^8.11.0
   pino-pretty: ^9.4.0
+  piscina: ^3.2.0
   rimraf: ^4.3.0
   sharp: ^0.31.3
   tsx: ^3.12.3
@@ -36,11 +37,12 @@ dependencies:
   '@fastify/middie': 8.1.0
   '@fastify/sensible': 5.2.0
   '@fastify/static': 6.9.0
-  '@kiwilan/fastify-utils': 0.1.13
-  '@kiwilan/filesystem': 0.0.12
+  '@kiwilan/fastify-utils': file:../../kiwilan-fastify-utils-*.tgz
+  '@kiwilan/filesystem': 0.0.15
   archiver: 5.3.1
   fastify: 4.14.0
   fastify-plugin: 4.5.0
+  piscina: 3.2.0
   rimraf: 4.3.0
   sharp: 0.31.3
 
@@ -155,6 +157,10 @@ packages:
       - supports-color
       - typescript
     dev: true
+
+  /@assemblyscript/loader/0.10.1:
+    resolution: {integrity: sha512-H71nDOOL8Y7kWRLqf6Sums+01Q5msqBW2KhDUTemh1tvY04eSkSXrK0uj/4mmY0Xr16/3zyZmsrxN7CKuRbNRg==}
+    dev: false
 
   /@babel/code-frame/7.18.6:
     resolution: {integrity: sha512-TDCmlK5eOvH+eH7cdAFlNXeVJqWIQ7gW9tY1GJIpUtFb6CmjVyq2VM3u71bOyR8CRihcCgMUYoDNyLXao3+70Q==}
@@ -522,37 +528,16 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@kiwilan/fastify-utils/0.1.13:
-    resolution: {integrity: sha512-bjvrxF5KmXpQQfhWw8nW6eodwGLdAWtzMBcIOllZp0RpuDKyEkCHExp27u08I6gw+pm3OzeUFpQBTJakiU94Xw==}
-    hasBin: true
-    dependencies:
-      '@fastify/cors': 8.2.0
-      '@fastify/env': 4.2.0
-      '@fastify/middie': 8.1.0
-      '@kiwilan/filesystem': 0.0.13
-      chalk: 5.2.0
-      commander: 10.0.0
-      conf: 11.0.1
-      esbuild: 0.17.11
-      esbuild-plugin-pino: 1.2.8
-      fastify: 4.14.0
-      md5: 2.3.0
-      ofetch: 1.0.1
-      tiny-glob: 0.2.9
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@kiwilan/filesystem/0.0.12:
-    resolution: {integrity: sha512-0XkB3oqsN6Wrw4/PaZn0062h7yBigGxmvX80s4YA0BC9SSm13y9E6/34VCHA1Fik3MMK2aFHaZkt7rVguJvmTA==}
+  /@kiwilan/filesystem/0.0.14:
+    resolution: {integrity: sha512-9JIeAfAZHpLfAf+1bOlo8QQ3IS9aZYy0j0ByOn5f5wO62uawPFxTJ6w6mZan1NkRp0LGBN2xQQSOlaYODDtluw==}
     dependencies:
       glob: 9.2.1
       md5: 2.3.0
       mime-types: 2.1.35
     dev: false
 
-  /@kiwilan/filesystem/0.0.13:
-    resolution: {integrity: sha512-yg7puQZ34sca08PrXfQYfHWjgDPFfs7ltszJqYfKFPFm/l4FZVikaWQNmzCjfpn8upmyLOE1GwK1KLPTKr+ZxQ==}
+  /@kiwilan/filesystem/0.0.15:
+    resolution: {integrity: sha512-Zlt2I3KjIDvUgMR4y1o4M+v3YGKXk6wFaWz3pHXeyOXxoMxb0reMxwmYycqL7Pu07Lhoz36Uk19ku8QZqKeSUQ==}
     dependencies:
       glob: 9.2.1
       md5: 2.3.0
@@ -1870,6 +1855,10 @@ packages:
     resolution: {integrity: sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==}
     engines: {node: '>=6'}
 
+  /eventemitter-asyncresource/1.0.0:
+    resolution: {integrity: sha512-39F7TBIV0G7gTelxwbEqnwhp90eqCPON1k0NwNfwhgKn4Co4ybUbj2pECcXT0B3ztRKZ7Pw1JujUUgmQJHcVAQ==}
+    dev: false
+
   /events/3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
@@ -2234,6 +2223,18 @@ packages:
     dependencies:
       function-bind: 1.1.1
     dev: true
+
+  /hdr-histogram-js/2.0.3:
+    resolution: {integrity: sha512-Hkn78wwzWHNCp2uarhzQ2SGFLU3JY8SBDDd3TAABK4fc30wm+MuPOrg5QVFVfkKOQd6Bfz3ukJEI+q9sXEkK1g==}
+    dependencies:
+      '@assemblyscript/loader': 0.10.1
+      base64-js: 1.5.1
+      pako: 1.0.11
+    dev: false
+
+  /hdr-histogram-percentiles-obj/3.0.0:
+    resolution: {integrity: sha512-7kIufnBqdsBGcSZLPJwqHT3yhk1QTsSlFsVD3kx5ixH/AlgBs9yM1q6DPhXZ8f8gtdqgh7N7/5btRLpQsS2gHw==}
+    dev: false
 
   /helmet/6.0.1:
     resolution: {integrity: sha512-8wo+VdQhTMVBMCITYZaGTbE4lvlthelPYSvoyNvk4RECTmrVjMerp9RfUOQXZWLvCcAn1pKj7ZRxK4lI9Alrcw==}
@@ -2788,6 +2789,16 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
+  /nice-napi/1.0.2:
+    resolution: {integrity: sha512-px/KnJAJZf5RuBGcfD+Sp2pAKq0ytz8j+1NehvgIGFkvtvFrDM3T8E4x/JJODXK9WZow8RRGrbA9QQ3hs+pDhA==}
+    os: ['!win32']
+    requiresBuild: true
+    dependencies:
+      node-addon-api: 3.2.1
+      node-gyp-build: 4.6.0
+    dev: false
+    optional: true
+
   /node-abi/3.33.0:
     resolution: {integrity: sha512-7GGVawqyHF4pfd0YFybhv/eM9JwTtPqx0mAanQ146O3FlSh3pA24zf9IRQTOsfTSqXTNzPSP5iagAJ94jjuVog==}
     engines: {node: '>=10'}
@@ -2795,12 +2806,23 @@ packages:
       semver: 7.3.8
     dev: false
 
+  /node-addon-api/3.2.1:
+    resolution: {integrity: sha512-mmcei9JghVNDYydghQmeDX8KoAm0FAiYyIcUt/N4nhyAipB17pllZQDOJD2fotxABnt4Mdz+dKTO7eftLg4d0A==}
+    dev: false
+    optional: true
+
   /node-addon-api/5.1.0:
     resolution: {integrity: sha512-eh0GgfEkpnoWDq+VY8OyvYhFEzBk6jIYbRKdIlyTiAXIVJ8PyBaKb0rp7oDtoddbdoHWhq8wwr+XZ81F1rpNdA==}
     dev: false
 
   /node-fetch-native/1.0.2:
     resolution: {integrity: sha512-KIkvH1jl6b3O7es/0ShyCgWLcfXxlBrLBbP3rOr23WArC66IMcU4DeZEeYEOwnopYhawLTn7/y+YtmASe8DFVQ==}
+
+  /node-gyp-build/4.6.0:
+    resolution: {integrity: sha512-NTZVKn9IylLwUzaKjkas1e4u2DLNcV4rdYagA4PWdPwW87Bi7z+BznyKSRwS/761tV/lzCGXplWsiaMjLqP2zQ==}
+    hasBin: true
+    dev: false
+    optional: true
 
   /normalize-package-data/2.5.0:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
@@ -2917,6 +2939,10 @@ packages:
   /p-try/2.2.0:
     resolution: {integrity: sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ==}
     engines: {node: '>=6'}
+
+  /pako/1.0.11:
+    resolution: {integrity: sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==}
+    dev: false
 
   /parent-module/1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
@@ -3035,6 +3061,16 @@ packages:
       safe-stable-stringify: 2.4.2
       sonic-boom: 3.2.1
       thread-stream: 2.3.0
+
+  /piscina/3.2.0:
+    resolution: {integrity: sha512-yn/jMdHRw+q2ZJhFhyqsmANcbF6V2QwmD84c6xRau+QpQOmtrBCoRGdvTfeuFDYXB5W2m6MfLkjkvQa9lUSmIA==}
+    dependencies:
+      eventemitter-asyncresource: 1.0.0
+      hdr-histogram-js: 2.0.3
+      hdr-histogram-percentiles-obj: 3.0.0
+    optionalDependencies:
+      nice-napi: 1.0.2
+    dev: false
 
   /pkg-up/3.1.0:
     resolution: {integrity: sha512-nDywThFk1i4BQK4twPQ6TA4RT8bDY96yeuCVBWL3ePARCiEKDRSrNGbFIgUJpLp+XeIR65v8ra7WuJOFUBtkMA==}
@@ -3780,4 +3816,27 @@ packages:
       archiver-utils: 2.1.0
       compress-commons: 4.1.1
       readable-stream: 3.6.1
+    dev: false
+
+  file:../../kiwilan-fastify-utils-*.tgz:
+    resolution: {integrity: sha512-1sBpxEJPKPR/29g3aDypF75rjWhOPcTx04dY6lNr1kFSt5tGBrAQqVm720srYO6L/ZylUe4TFEmFabHdYUpvYg==, tarball: file:../../kiwilan-fastify-utils-*.tgz}
+    name: '@kiwilan/fastify-utils'
+    version: 0.1.14
+    hasBin: true
+    dependencies:
+      '@fastify/cors': 8.2.0
+      '@fastify/env': 4.2.0
+      '@fastify/middie': 8.1.0
+      '@kiwilan/filesystem': 0.0.14
+      chalk: 5.2.0
+      commander: 10.0.0
+      conf: 11.0.1
+      esbuild: 0.17.11
+      esbuild-plugin-pino: 1.2.8
+      fastify: 4.14.0
+      md5: 2.3.0
+      ofetch: 1.0.1
+      tiny-glob: 0.2.9
+    transitivePeerDependencies:
+      - supports-color
     dev: false

@@ -26,7 +26,7 @@ export class Picture {
   ) {}
 
   public static async make(path: string, sizeRender: Size): Promise<Picture> {
-    const url = dotenv.API_URL
+    const url = dotenv?.API_URL
     const splitted = path.split('/')
 
     const file = splitted[splitted.length - 1] || 'unknown'

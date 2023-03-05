@@ -2,7 +2,7 @@
   "name": "seeds",
   "type": "module",
   "version": "1.0.0",
-  "description": "Fastify template.",
+  "description": "Seeds API.",
   "author": {
     "name": "Ewilan Rivière",
     "email": "ewilan.riviere@gmail.com"
@@ -40,11 +40,12 @@
     "@fastify/middie": "^8.1.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.9.0",
-    "@kiwilan/fastify-utils": "^0.1.13",
-    "@kiwilan/filesystem": "^0.0.12",
+    "@kiwilan/fastify-utils": "file:~/kiwilan-fastify-utils-*.tgz",
+    "@kiwilan/filesystem": "^0.0.15",
     "archiver": "^5.3.1",
     "fastify": "^4.14.0",
     "fastify-plugin": "^4.5.0",
+    "piscina": "^3.2.0",
     "rimraf": "^4.3.0",
     "sharp": "^0.31.3"
   },

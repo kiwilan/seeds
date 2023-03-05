@@ -26,18 +26,8 @@ pnpm dev
 
 ## Docker
 
-### Manual
-
 ```bash
-docker build -t seeds .
-docker run -it seeds
-docker run -p 3000:3000 seeds
-```
-
-### Docker-compose
-
-```bash
-docker-compose up -d --build
+docker-compose up
 ```
 
 ## Pictures

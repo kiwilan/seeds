@@ -7,37 +7,58 @@ import type { Size } from '~/types'
 
 export class ZipService {
   protected constructor(
+    protected paths: Size[] = [
+      'medium',
+      'small',
+      'tiny',
+    ],
     protected pictures?: PictureService,
   ) {}
 
   public static async make(): Promise<ZipService> {
     const self = new ZipService()
 
-    const paths: Size[] = [
-      'medium',
-      'small',
-      'tiny',
-    ]
-
     self.pictures = await self.getPictures()
-
-    await Promise.all(paths.map(async (path) => {
-      self.resizePictures(path)
-    }))
-
-    // await self.createZip()
 
     return self
   }
 
+  public static async convert() {
+    const self = await ZipService.make()
+
+    await Promise.all(self.paths.map(async (path) => {
+      await self.resizePictures(path)
+    }))
+
+    return self
+  }
+
+  public static async zip() {
+    const self = await ZipService.make()
+
+    await self.createZip()
+
+    return FsPath.root('/seeds-pictures/target.zip')
+  }
+
   private async resizePictures(size: Size) {
     const pictures = this.pictures?.getFiles()
+
     if (!pictures)
-      return
+      throw new Error('No pictures found')
 
-    const files = await FsFile.allFiles(FsPath.root(`src/public/seeds-pictures/${size}`))
+    const path = FsPath.root(`src/public/seeds-pictures/${size}`)
+    const exists = await FsFile.exists(path)
 
-    if (pictures.length !== files.length) {
+    let fileLength = 0
+    if (!exists)
+      await FsFile.makeDirectory(path, true)
+
+    const files = await FsFile.allFiles(path)
+    fileLength = files.length
+
+    console.error(`size: ${size}, converted pictures: ${fileLength}`)
+    if (pictures.length !== fileLength) {
       const path = FsPath.root(`src/public/seeds-pictures/${size}`)
       await FsFile.cleanDirectory(path)
 
@@ -48,6 +69,8 @@ export class ZipService {
         }
       }))
     }
+    const newFiles = await FsFile.allFiles(path)
+    console.error(`size: ${size}, converted pictures: ${newFiles.length}`)
   }
 
   private async getPictures(): Promise<PictureService> {
@@ -57,8 +80,12 @@ export class ZipService {
   }
 
   private async createZip() {
-    const path = FsPath.root('src/public/target.zip')
-    await FsFile.deleteDirectory(path)
+    const path = FsPath.root('src/public/seeds-pictures/target.zip')
+    const exists = await FsFile.exists(path)
+    if (exists)
+      return
+
+    await FsFile.delete(path)
 
     const output = createWriteStream(path)
     const archive = archiver('zip')
