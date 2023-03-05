@@ -45,18 +45,9 @@ LocalServer.run({
     }
   },
   afterStart: async () => {
-    await _useWorker(FsPath.root('src/worker.ts'))
+    // const path = dotenv.IS_DEV
+    //   ? FsPath.root('src/worker.ts')
+    //   : FsPath.root('build/worker.mjs')
+    // await _useWorker(path)
   },
 })
-
-// /**
-// * Use main thread while making intensive CPU task on worker
-// */
-// async function main () {
-//   // this log will happen every second during and after the intensive task, main thread is never blocked
-//   setInterval(() => { console.log('Event loop on main thread is not blocked right now') }, 1000)
-
-//   await _useWorker('./worker.js')
-// }
-
-// main()

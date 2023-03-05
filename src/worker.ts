@@ -2,7 +2,7 @@
 
 import { parentPort } from 'worker_threads'
 import { DotenvLoader } from '@kiwilan/fastify-utils'
-import { ZipService } from '@/src/services/zipService'
+import { ZipService } from '@/src/services/ZipService'
 
 // const worker = async ({ a, b }: { a: number; b: number }) => {
 //   console.log('Worker called')

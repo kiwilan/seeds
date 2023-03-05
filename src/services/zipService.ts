@@ -1,8 +1,8 @@
 import { createWriteStream } from 'fs'
 import archiver from 'archiver'
 import { FsFile, FsPath } from '@kiwilan/filesystem'
-import { PictureService } from './pictureService'
-import { SharpService } from './sharpService'
+import { PictureService } from './PictureService'
+import { SharpService } from './SharpService'
 import type { Size } from '~/types'
 
 export class ZipService {

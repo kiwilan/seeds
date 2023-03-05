@@ -1,8 +1,8 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { Router } from '@kiwilan/fastify-utils'
-import { PictureService } from '~/services/pictureService'
+import { PictureService } from '~/services/PictureService'
 import type { Size } from '~/types'
-import { SharpService } from '~/services/sharpService'
+import { SharpService } from '~/services/SharpService'
 
 const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.route({

@@ -2,8 +2,8 @@ import type { FastifyPluginAsync } from 'fastify'
 import { Router } from '@kiwilan/fastify-utils'
 import { metaRoutes } from '~/services'
 import { picturesDocs } from '~/docs'
-import type { QueryParamsRaw } from '~/services/pictureService'
-import { PictureService } from '~/services/pictureService'
+import type { QueryParamsRaw } from '~/services/PictureService'
+import { PictureService } from '~/services/PictureService'
 
 const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.route({

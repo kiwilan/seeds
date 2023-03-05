@@ -1,6 +1,6 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { Router } from '@kiwilan/fastify-utils'
-import { PictureService } from '~/services/pictureService'
+import { PictureService } from '~/services/PictureService'
 import { metaRoutes } from '~/services'
 import type { Size } from '~/types'
 import { picturesIdDocs } from '~/docs'
