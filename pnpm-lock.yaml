@@ -9,8 +9,8 @@ specifiers:
   '@fastify/middie': ^8.1.0
   '@fastify/sensible': ^5.2.0
   '@fastify/static': ^6.9.0
-  '@kiwilan/fastify-utils': ^0.1.15
-  '@kiwilan/filesystem': ^0.0.15
+  '@kiwilan/fastify-utils': file:~/kiwilan-fastify-utils-*.tgz
+  '@kiwilan/filesystem': file:~/kiwilan-filesystem-*.tgz
   '@types/archiver': ^5.3.1
   '@types/node': ^18.14.6
   '@types/sharp': ^0.31.1
@@ -37,8 +37,8 @@ dependencies:
   '@fastify/middie': 8.1.0
   '@fastify/sensible': 5.2.0
   '@fastify/static': 6.9.0
-  '@kiwilan/fastify-utils': 0.1.15
-  '@kiwilan/filesystem': 0.0.15
+  '@kiwilan/fastify-utils': file:../../kiwilan-fastify-utils-*.tgz
+  '@kiwilan/filesystem': file:../../kiwilan-filesystem-*.tgz
   archiver: 5.3.1
   fastify: 4.14.0
   fastify-plugin: 4.5.0
@@ -527,35 +527,6 @@ packages:
   /@humanwhocodes/object-schema/1.2.1:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
-
-  /@kiwilan/fastify-utils/0.1.15:
-    resolution: {integrity: sha512-RuXeuY4AzzItC+yBkB9j3Zm1MlNeDCtRprWxsZVT1tZhk1wuTYBNjlXalb20E33DHpiNTLBWTbsboVcc/neYkA==}
-    hasBin: true
-    dependencies:
-      '@fastify/cors': 8.2.0
-      '@fastify/env': 4.2.0
-      '@fastify/middie': 8.1.0
-      '@kiwilan/filesystem': 0.0.15
-      chalk: 5.2.0
-      commander: 10.0.0
-      conf: 11.0.1
-      esbuild: 0.17.11
-      esbuild-plugin-pino: 1.2.8
-      fastify: 4.14.0
-      md5: 2.3.0
-      ofetch: 1.0.1
-      tiny-glob: 0.2.9
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
-  /@kiwilan/filesystem/0.0.15:
-    resolution: {integrity: sha512-Zlt2I3KjIDvUgMR4y1o4M+v3YGKXk6wFaWz3pHXeyOXxoMxb0reMxwmYycqL7Pu07Lhoz36Uk19ku8QZqKeSUQ==}
-    dependencies:
-      glob: 9.2.1
-      md5: 2.3.0
-      mime-types: 2.1.35
-    dev: false
 
   /@lukeed/ms/2.0.1:
     resolution: {integrity: sha512-Xs/4RZltsAL7pkvaNStUQt7netTkyxrS0K+RILcVr3TRMS/ToOg4I6uNfhB9SlGsnWBym4U+EaXq0f0cEMNkHA==}
@@ -3829,4 +3800,37 @@ packages:
       archiver-utils: 2.1.0
       compress-commons: 4.1.1
       readable-stream: 3.6.1
+    dev: false
+
+  file:../../kiwilan-fastify-utils-*.tgz:
+    resolution: {integrity: sha512-FLXwk0ZZXiHMmJr/w9auWuT2VAJAMeGZ3mKWlGU62bJWfVA0a1jdIv57PNIecZe8CwRBXDQ1DRNHNahT7VmvxQ==, tarball: file:../../kiwilan-fastify-utils-*.tgz}
+    name: '@kiwilan/fastify-utils'
+    version: 0.1.15
+    hasBin: true
+    dependencies:
+      '@fastify/cors': 8.2.0
+      '@fastify/env': 4.2.0
+      '@fastify/middie': 8.1.0
+      '@kiwilan/filesystem': file:../../kiwilan-filesystem-*.tgz
+      chalk: 5.2.0
+      commander: 10.0.0
+      conf: 11.0.1
+      esbuild: 0.17.11
+      esbuild-plugin-pino: 1.2.8
+      fastify: 4.14.0
+      md5: 2.3.0
+      ofetch: 1.0.1
+      tiny-glob: 0.2.9
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
+  file:../../kiwilan-filesystem-*.tgz:
+    resolution: {integrity: sha512-ffRf95rA+Dpd1Z0qErzjQuAJ3mlRHFn/GmNM3GY3kKZid9y/MRozBev8Q+RhZW5x2BEoIZSPR/nY17A31HUJcA==, tarball: file:../../kiwilan-filesystem-*.tgz}
+    name: '@kiwilan/filesystem'
+    version: 0.0.15
+    dependencies:
+      glob: 9.2.1
+      md5: 2.3.0
+      mime-types: 2.1.35
     dev: false

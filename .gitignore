@@ -10,4 +10,6 @@ key
 
 src/metadata.json
 
-/Users/ewilan/Workspace/seeds/.fastify
+/.fastify
+
+/src/dotenv.d.ts
