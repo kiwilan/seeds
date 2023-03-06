@@ -6,10 +6,9 @@ src/package.json
 src/providers/.DS_Store
 .DS_Store
 key
-.fastify
-
-src/metadata.json
 
 /.fastify
 
 /src/dotenv.d.ts
+
+src/metadata.json
