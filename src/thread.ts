@@ -1,4 +1,4 @@
-import { Worker, workerData } from 'worker_threads'
+import { Worker, workerData } from 'node:worker_threads'
 
 /**
 * Use a worker via Worker Threads module to make intensive CPU task

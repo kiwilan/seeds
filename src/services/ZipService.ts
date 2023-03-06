@@ -1,4 +1,4 @@
-import { createWriteStream } from 'fs'
+import { createWriteStream } from 'node:fs'
 import archiver from 'archiver'
 import { FsFile, FsPath } from '@kiwilan/filesystem'
 import { PictureService } from './PictureService'

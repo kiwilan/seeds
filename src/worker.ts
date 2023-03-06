@@ -1,6 +1,6 @@
 'use strict'
 
-import { parentPort } from 'worker_threads'
+import { parentPort } from 'node:worker_threads'
 import { DotenvLoader } from '@kiwilan/fastify-utils'
 import { ZipService } from '@/src/services/ZipService'
 

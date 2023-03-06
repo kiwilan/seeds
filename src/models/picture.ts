@@ -1,4 +1,4 @@
-import { statSync } from 'fs'
+import { statSync } from 'node:fs'
 import type { Size } from '~/types'
 
 export class Picture {
