@@ -26,6 +26,7 @@ deploy-job:
     - ssh $SSH_USER@$SSH_IP "
       cd /home/ewilan/www/$CI_PROJECT_NAME/src/public/seeds-pictures &&
       git pull &&
+      ./convert.sh &&
       cd /home/ewilan/www/$CI_PROJECT_NAME &&
       git pull &&
       /home/ewilan/.nvm/versions/node/v$NODE_VERSION/bin/pnpm i &&
