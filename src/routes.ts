@@ -4,5 +4,6 @@ export enum EndpointEnum {
   '/api/pictures/:id' = 2,
   '/api/pictures/:id/render' = 3,
   '/api/pictures' = 4,
-  '/' = 5,
+  '/api/pictures/random' = 5,
+  '/' = 6,
 }
