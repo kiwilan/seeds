@@ -20,7 +20,6 @@ export class Picture {
     public links?: {
       show?: string
       render?: string
-      renderSmall?: string
       download?: string
     }
   ) {}
@@ -41,8 +40,8 @@ export class Picture {
     const self = new Picture(filename, extension, sizeRender)
     // self.id = Math.random().toString(36).slice(2, 16)
     // self.id = token
-    self.id = self.slugify(filename)
     self.category = splitted[splitted.length - 2] || 'unknown'
+    self.id = `${self.slugify(self.category)}.${self.slugify(filename)}`
     self.size = self.setSize(path)
     self.sizeHuman = self.setSizeHuman(path)
     self.date = self.setDate(path)

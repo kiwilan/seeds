@@ -8,6 +8,7 @@ export interface QueryParamsRaw {
   count?: string
   size?: string
   shuffle?: string
+  max?: string
 }
 
 export interface QueryParams {
@@ -15,6 +16,7 @@ export interface QueryParams {
   count?: number
   size?: Size
   shuffle?: boolean
+  max?: boolean
 }
 
 export class PictureService {
@@ -36,12 +38,14 @@ export class PictureService {
     const countQuery: number = query?.count ? parseInt(query?.count) : defaultQuery.count
     const sizeQuery: Size = query?.size ? query?.size as Size : defaultQuery.size as Size
     const shuffleQuery: boolean = query?.shuffle !== undefined ? JSON.parse(`${query?.shuffle}`) : defaultQuery.shuffle
+    const maxQuery: boolean = query?.max !== undefined ? JSON.parse(`${query?.max}`) : false
 
     self.query = {
       category: categoryQuery,
       count: countQuery,
       size: sizeQuery,
       shuffle: shuffleQuery,
+      max: maxQuery,
     }
     self.category = self.query.category as PictureCategory
     self.categoriesAllowed = filterCategories(self.category)
@@ -75,16 +79,19 @@ export class PictureService {
       originalList = this.shuffle<Picture>(originalList)
 
     if (this.query.count) {
-      if (this.query.count < originalList.length) {
+      if (!this.query.max && this.query.count <= originalList.length) {
         const count = this.query.count
         const pictures = originalList.slice(0, count)
         finalList.push(...pictures)
       }
 
-      if (this.query.count > originalList.length) {
+      if (!this.query.max && this.query.count > originalList.length) {
         for (let i = 0; i < this.query.count; i++)
           finalList.push(originalList[i % originalList.length])
       }
+
+      if (this.query.max)
+        finalList.push(...originalList)
     }
     else {
       finalList.push(...originalList)
