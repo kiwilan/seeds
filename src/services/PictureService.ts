@@ -1,6 +1,6 @@
 import { FsFile } from '@kiwilan/filesystem'
 import { Picture } from '~/models/picture'
-import { PictureCategory } from '~/types'
+import { PictureCategory, filterCategories } from '~/types'
 import type { Size } from '~/types'
 
 export interface QueryParamsRaw {
@@ -44,7 +44,7 @@ export class PictureService {
       shuffle: shuffleQuery,
     }
     self.category = self.query.category as PictureCategory
-    self.categoriesAllowed = self.setCategoriesAllowed()
+    self.categoriesAllowed = filterCategories(self.category)
 
     self.files = await self.setFiles()
     self.pictures = self.setPictures()
@@ -106,58 +106,6 @@ export class PictureService {
     }))
 
     return pictures
-  }
-
-  private setCategoriesAllowed(): string[] {
-    if (!this.category)
-      this.category = PictureCategory.all
-
-    const categories = {
-      all: [
-        PictureCategory.animal,
-        PictureCategory.building,
-        PictureCategory.city,
-        PictureCategory.cultural,
-        PictureCategory.decoration,
-        PictureCategory.food,
-        PictureCategory.monument,
-        PictureCategory.nature,
-        PictureCategory.people,
-        PictureCategory.relationship,
-        PictureCategory.space,
-        PictureCategory.technology,
-      ],
-      architecture: [
-        PictureCategory.building,
-        PictureCategory.city,
-        PictureCategory.decoration,
-        PictureCategory.monument,
-      ],
-      human: [
-        PictureCategory.cultural,
-        PictureCategory.people,
-        PictureCategory.relationship,
-      ],
-      wildlife: [
-        PictureCategory.animal,
-        PictureCategory.nature,
-        PictureCategory.space,
-      ],
-    }
-
-    if (
-      this.category !== PictureCategory.all
-      && this.category !== PictureCategory.architecture
-      && this.category !== PictureCategory.human
-      && this.category !== PictureCategory.wildlife
-    )
-      return [this.category]
-
-    let categoriesAllowed: string[] = []
-    const current: PictureCategory = this.category || [PictureCategory.all]
-    categoriesAllowed = categories[current]
-
-    return categoriesAllowed
   }
 
   private shuffle<T>(array: T[]): T[] {

@@ -27,6 +27,58 @@ export enum PictureCategory {
   wildlife = 'wildlife', // animal, nature, space
 }
 
+export const filterCategories = (category?: PictureCategory): string[] => {
+  if (!category)
+    category = PictureCategory.all
+
+  const categories = {
+    all: [
+      PictureCategory.animal,
+      PictureCategory.building,
+      PictureCategory.city,
+      PictureCategory.cultural,
+      PictureCategory.decoration,
+      PictureCategory.food,
+      PictureCategory.monument,
+      PictureCategory.nature,
+      PictureCategory.people,
+      PictureCategory.relationship,
+      PictureCategory.space,
+      PictureCategory.technology,
+    ],
+    architecture: [
+      PictureCategory.building,
+      PictureCategory.city,
+      PictureCategory.decoration,
+      PictureCategory.monument,
+    ],
+    human: [
+      PictureCategory.cultural,
+      PictureCategory.people,
+      PictureCategory.relationship,
+    ],
+    wildlife: [
+      PictureCategory.animal,
+      PictureCategory.nature,
+      PictureCategory.space,
+    ],
+  }
+
+  if (
+    category !== PictureCategory.all
+    && category !== PictureCategory.architecture
+    && category !== PictureCategory.human
+    && category !== PictureCategory.wildlife
+  )
+    return [category]
+
+  let categoriesAllowed: string[] = []
+  const current: PictureCategory = category || [PictureCategory.all]
+  categoriesAllowed = categories[current]
+
+  return categoriesAllowed
+}
+
 // export declare namespace Route {
 //   export type Endpoint = '/api/docs' | '/api' | '/api/pictures/:id' | '/api/pictures/:id/render' | '/api/pictures' | '/api/pictures/zip' | '/'
 // }
