@@ -33,9 +33,16 @@ export class Picture {
     const extension = fname.pop() || 'unknown'
     const filename = fname.pop() || 'unknown'
 
-    const splitCredits = filename.split('-')
-    const author = `${splitCredits.shift()} ${splitCredits.shift()}`.trim()
-    const token = splitCredits.shift()
+    let provider
+    let author = 'unknown'
+    let originalURL
+    if (filename.includes('unsplash')) {
+      provider = 'unsplash.com'
+      const splitCredits = filename.split('-')
+      author = `${splitCredits.shift()} ${splitCredits.shift()}`.trim()
+      const token = splitCredits.shift()
+      originalURL = `https://unsplash.com/photos/${token}`
+    }
 
     const self = new Picture(filename, extension, sizeRender)
     // self.id = Math.random().toString(36).slice(2, 16)
@@ -56,9 +63,9 @@ export class Picture {
     }
 
     self.credits = {
-      provider: 'unsplash.com',
+      provider,
       author,
-      url: `https://unsplash.com/photos/${token}`
+      url: originalURL
     }
 
     return self
