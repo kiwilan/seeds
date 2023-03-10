@@ -7,12 +7,25 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.route({
     method: 'GET',
     url: Router.setRoute('/api/pictures/random'),
-    async handler() {
+    async handler(request, reply) {
+      const queryParams = request.query as {
+        category?: string
+        size?: string
+        render?: string
+      }
       const service = await PictureService.make({
-        size: 'medium'
+        size: queryParams.size || 'medium',
       })
-      const pictures = service.getPictures()
+      let pictures = service.getPictures()
+      if (queryParams.category)
+        pictures = pictures.filter(picture => picture.category === queryParams.category)
       const picture = pictures[Math.floor(Math.random() * pictures.length)]
+
+      if (queryParams.render === 'true') {
+        let path = picture.pathFilename as string
+        path = path.replace('large', queryParams.size || 'medium')
+        return reply.sendFile(path)
+      }
 
       return {
         data: picture,
