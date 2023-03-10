@@ -41,7 +41,7 @@ export const picturesDocs = () => {
           'human',
           'wildlife',
         ],
-        extras: '`all` is the default value. `architecture` is a combination of `building`, `city`, `decoration` and `monument`. `human` is a combination of `cultural`, `people` and `relationship`. `wildlife` is a combination of `animal`, `nature` and `space`.'
+        extras: '`all` is the default value. `architecture` is a combination of `building`, `city`, `decoration` and `monument`. `human` is a combination of `artist`, `cultural`, `people`, `relationship` and `sport`. `wildlife` is a combination of `animal`, `flower`, `nature` and `space`.'
       },
       count: {
         description: 'The number of pictures to return',
