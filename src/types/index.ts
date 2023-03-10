@@ -9,22 +9,25 @@ export enum SizeConvert {
 
 export enum PictureCategory {
   animal = 'animal',
+  artist = 'artist',
   building = 'building',
   city = 'city',
   cultural = 'cultural',
   decoration = 'decoration',
+  flower = 'flower',
   food = 'food',
   monument = 'monument',
   nature = 'nature',
   people = 'people',
   relationship = 'relationship',
   space = 'space',
+  sport = 'sport',
   technology = 'technology',
   // global
   all = 'all',
   architecture = 'architecture', // building, city, decoration, monument
-  human = 'human', // cultural, people, relationship
-  wildlife = 'wildlife', // animal, nature, space
+  human = 'human', // artist, cultural, people, relationship, sport
+  wildlife = 'wildlife', // animal, flower, nature, space
 }
 
 export const filterCategories = (category?: PictureCategory): string[] => {
@@ -53,12 +56,15 @@ export const filterCategories = (category?: PictureCategory): string[] => {
       PictureCategory.monument,
     ],
     human: [
+      PictureCategory.artist,
       PictureCategory.cultural,
       PictureCategory.people,
       PictureCategory.relationship,
+      PictureCategory.sport,
     ],
     wildlife: [
       PictureCategory.animal,
+      PictureCategory.flower,
       PictureCategory.nature,
       PictureCategory.space,
     ],
