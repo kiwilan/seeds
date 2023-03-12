@@ -36,12 +36,14 @@ export const picturesDocs = () => {
           'relationship',
           'space',
           'technology',
+          'tvshow',
           'all',
           'architecture',
           'human',
           'wildlife',
+          'entertainment',
         ],
-        extras: '`all` is the default value. `architecture` is a combination of `building`, `city`, `decoration` and `monument`. `human` is a combination of `artist`, `cultural`, `people`, `relationship` and `sport`. `wildlife` is a combination of `animal`, `flower`, `nature` and `space`.'
+        extras: '`all` is the default value. `architecture` is a combination of `building`, `city`, `decoration` and `monument`. `human` is a combination of `artist`, `cultural`, `people`, `relationship` and `sport`. `wildlife` is a combination of `animal`, `flower`, `nature` and `space`. `entertainment` is a combination of `tvshow`.'
       },
       count: {
         description: 'The number of pictures to return',

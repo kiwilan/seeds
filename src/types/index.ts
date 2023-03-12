@@ -23,11 +23,13 @@ export enum PictureCategory {
   space = 'space',
   sport = 'sport',
   technology = 'technology',
+  tvshow = 'tvshow',
   // global
   all = 'all',
   architecture = 'architecture', // building, city, decoration, monument
   human = 'human', // artist, cultural, people, relationship, sport
   wildlife = 'wildlife', // animal, flower, nature, space
+  entertainment = 'entertainment', // tvshow
 }
 
 export const filterCategories = (category?: PictureCategory): string[] => {
@@ -68,6 +70,9 @@ export const filterCategories = (category?: PictureCategory): string[] => {
       PictureCategory.nature,
       PictureCategory.space,
     ],
+    entertainment: [
+      PictureCategory.tvshow,
+    ],
   }
 
   if (
@@ -75,6 +80,7 @@ export const filterCategories = (category?: PictureCategory): string[] => {
     && category !== PictureCategory.architecture
     && category !== PictureCategory.human
     && category !== PictureCategory.wildlife
+    && category !== PictureCategory.entertainment
   )
     return [category]
 
@@ -84,7 +90,3 @@ export const filterCategories = (category?: PictureCategory): string[] => {
 
   return categoriesAllowed
 }
-
-// export declare namespace Route {
-//   export type Endpoint = '/api/docs' | '/api' | '/api/pictures/:id' | '/api/pictures/:id/render' | '/api/pictures' | '/api/pictures/zip' | '/'
-// }
