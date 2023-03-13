@@ -12,10 +12,12 @@ export enum PictureCategory {
   artist = 'artist',
   building = 'building',
   city = 'city',
+  corporate = 'corporate',
   cultural = 'cultural',
   decoration = 'decoration',
   flower = 'flower',
   food = 'food',
+  house = 'house',
   monument = 'monument',
   nature = 'nature',
   people = 'people',
@@ -26,10 +28,11 @@ export enum PictureCategory {
   tvshow = 'tvshow',
   // global
   all = 'all',
-  architecture = 'architecture', // building, city, decoration, monument
-  human = 'human', // artist, cultural, people, relationship, sport
+  architecture = 'architecture', // building, city, decoration, house, monument
+  human = 'human', // artist, corporate, cultural, people, relationship, sport
   wildlife = 'wildlife', // animal, flower, nature, space
   entertainment = 'entertainment', // tvshow
+  mainstream = 'mainstream', // building, city, corporate, decoration, food, house, monument, nature, people, technology
 }
 
 export const filterCategories = (category?: PictureCategory): string[] => {
@@ -55,10 +58,12 @@ export const filterCategories = (category?: PictureCategory): string[] => {
       PictureCategory.building,
       PictureCategory.city,
       PictureCategory.decoration,
+      PictureCategory.house,
       PictureCategory.monument,
     ],
     human: [
       PictureCategory.artist,
+      PictureCategory.corporate,
       PictureCategory.cultural,
       PictureCategory.people,
       PictureCategory.relationship,
@@ -72,6 +77,18 @@ export const filterCategories = (category?: PictureCategory): string[] => {
     ],
     entertainment: [
       PictureCategory.tvshow,
+    ],
+    mainstream: [
+      PictureCategory.building,
+      PictureCategory.city,
+      PictureCategory.corporate,
+      PictureCategory.decoration,
+      PictureCategory.food,
+      PictureCategory.house,
+      PictureCategory.monument,
+      PictureCategory.nature,
+      PictureCategory.people,
+      PictureCategory.technology,
     ],
   }
 

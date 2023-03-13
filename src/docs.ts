@@ -11,7 +11,12 @@ const size = {
     'small',
     'tiny',
   ],
-  extras: '`large` equals to `1920` pixels width. `medium` equals to `1280` pixels width. `small` equals to `640` pixels width. `tiny` equals to `320` pixels width.'
+  extras: {
+    large: '1920px',
+    medium: '1280px',
+    small: '640px',
+    tiny: '340px',
+  }
 }
 
 export const picturesDocs = () => {
@@ -27,9 +32,11 @@ export const picturesDocs = () => {
           'animal',
           'building',
           'city',
+          'corporate',
           'cultural',
           'decoration',
           'food',
+          'house',
           'monument',
           'nature',
           'people',
@@ -42,8 +49,16 @@ export const picturesDocs = () => {
           'human',
           'wildlife',
           'entertainment',
+          'mainstream',
         ],
-        extras: '`all` is the default value. `architecture` is a combination of `building`, `city`, `decoration` and `monument`. `human` is a combination of `artist`, `cultural`, `people`, `relationship` and `sport`. `wildlife` is a combination of `animal`, `flower`, `nature` and `space`. `entertainment` is a combination of `tvshow`.'
+        extras: {
+          all: 'all categories (default)',
+          architecture: '`building`, `city`, `decoration`, `house`, `monument`',
+          human: '`artist`, `corporate`, `cultural`, `people`, `relationship`, `sport`',
+          wildlife: '`animal`, `flower`, `nature`, `space`',
+          entertainment: '`tvshow`',
+          mainstream: '`building`, `city`, `corporate`, `decoration`, `food`, `house`, `monument`, `nature`, `people`, `technology`',
+        }
       },
       count: {
         description: 'The number of pictures to return',
