@@ -23,8 +23,8 @@ dependencies:
     specifier: ^6.9.0
     version: 6.9.0
   '@kiwilan/fastify-utils':
-    specifier: ^0.1.17
-    version: 0.1.17
+    specifier: ^0.1.18
+    version: 0.1.18
   '@kiwilan/filesystem':
     specifier: ^0.0.16
     version: 0.0.16
@@ -589,8 +589,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@kiwilan/fastify-utils@0.1.17:
-    resolution: {integrity: sha512-wrWTKsp31bdk45FuGdhu8+TxJ/I/yciogVm9jlR9iIN37eBteFwevIWYshv7oVlUUyDEnbr20f3ugCM27JIBuw==}
+  /@kiwilan/fastify-utils@0.1.18:
+    resolution: {integrity: sha512-dnws+jqsTjC1RSMU7Aj9K0BlkMTWrWhvKrzIxn6GIbzjr35TmoQUPSWUoEqsyrP+zihqkrBcxSvVDo6cZ0gRfw==}
     hasBin: true
     dependencies:
       '@fastify/cors': 8.2.1
