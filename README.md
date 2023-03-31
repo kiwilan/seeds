@@ -19,6 +19,12 @@ pnpm i
 cp .env.example .env
 ```
 
+You could use pictures from [this repo](https://gitlab.com/kiwilan/seeds-pictures).
+
+```bash
+git clone https://gitlab.com/kiwilan/seeds-pictures.git ./src/public/seeds-pictures
+```
+
 ```bash
 pnpm dev
 ```
@@ -30,16 +36,6 @@ docker-compose up
 ```
 
 ## Pictures
-
-### Example
-
-You could use pictures from [this repo](https://gitlab.com/kiwilan/seeds-pictures).
-
-```bash
-git clone https://gitlab.com/kiwilan/seeds-pictures ./src/public/seeds-pictures
-```
-
-### Your own pictures
 
 You could use your own pictures. You just need to put them in `./src/public/seeds-pictures` and respect the following structure:
 
