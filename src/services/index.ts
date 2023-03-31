@@ -1,6 +1,6 @@
 import { Router } from '@kiwilan/fastify-utils'
 
-const metaRoutes = () => {
+function metaRoutes() {
   return {
     home: Router.route('/api'),
     pictures: Router.route('/api/pictures'),

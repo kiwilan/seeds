@@ -19,7 +19,7 @@ const size = {
   }
 }
 
-export const picturesDocs = () => {
+export function picturesDocs() {
   return {
     route: Router.route('/api/pictures'),
     query: {
@@ -72,7 +72,7 @@ export const picturesDocs = () => {
   }
 }
 
-export const picturesIdDocs = () => {
+export function picturesIdDocs() {
   return {
     route: Router.route('/api/pictures/:id'),
     query: {

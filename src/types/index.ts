@@ -35,7 +35,7 @@ export enum PictureCategory {
   mainstream = 'mainstream', // building, city, corporate, decoration, food, house, monument, nature, people, technology
 }
 
-export const filterCategories = (category?: PictureCategory): string[] => {
+export function filterCategories(category?: PictureCategory): string[] {
   if (!category)
     category = PictureCategory.all
 
