@@ -21,6 +21,7 @@ export enum PictureCategory {
   monument = 'monument',
   nature = 'nature',
   people = 'people',
+  peoplemedia = 'peoplemedia',
   relationship = 'relationship',
   space = 'space',
   sport = 'sport',
@@ -29,6 +30,7 @@ export enum PictureCategory {
   // global
   all = 'all',
   architecture = 'architecture', // building, city, decoration, house, monument
+  characters = 'characters', // people, peoplemedia
   human = 'human', // artist, corporate, cultural, people, relationship, sport
   wildlife = 'wildlife', // animal, flower, nature, space
   entertainment = 'entertainment', // tvshow
@@ -42,17 +44,24 @@ export function filterCategories(category?: PictureCategory): string[] {
   const categories = {
     all: [
       PictureCategory.animal,
+      PictureCategory.artist,
       PictureCategory.building,
       PictureCategory.city,
+      PictureCategory.corporate,
       PictureCategory.cultural,
       PictureCategory.decoration,
+      PictureCategory.flower,
       PictureCategory.food,
+      PictureCategory.house,
       PictureCategory.monument,
       PictureCategory.nature,
       PictureCategory.people,
+      PictureCategory.peoplemedia,
       PictureCategory.relationship,
       PictureCategory.space,
+      PictureCategory.sport,
       PictureCategory.technology,
+      PictureCategory.tvshow,
     ],
     architecture: [
       PictureCategory.building,
@@ -61,11 +70,16 @@ export function filterCategories(category?: PictureCategory): string[] {
       PictureCategory.house,
       PictureCategory.monument,
     ],
+    characters: [
+      PictureCategory.people,
+      PictureCategory.peoplemedia,
+    ],
     human: [
       PictureCategory.artist,
       PictureCategory.corporate,
       PictureCategory.cultural,
       PictureCategory.people,
+      PictureCategory.peoplemedia,
       PictureCategory.relationship,
       PictureCategory.sport,
     ],
@@ -76,6 +90,7 @@ export function filterCategories(category?: PictureCategory): string[] {
       PictureCategory.space,
     ],
     entertainment: [
+      PictureCategory.peoplemedia,
       PictureCategory.tvshow,
     ],
     mainstream: [
@@ -95,6 +110,8 @@ export function filterCategories(category?: PictureCategory): string[] {
   if (
     category !== PictureCategory.all
     && category !== PictureCategory.architecture
+    && category !== PictureCategory.mainstream
+    && category !== PictureCategory.characters
     && category !== PictureCategory.human
     && category !== PictureCategory.wildlife
     && category !== PictureCategory.entertainment
