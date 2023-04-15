@@ -30,7 +30,7 @@ export enum PictureCategory {
   // global
   all = 'all',
   architecture = 'architecture', // building, city, decoration, house, monument
-  characters = 'characters', // people, peoplemedia
+  character = 'character', // people, peoplemedia
   human = 'human', // artist, corporate, cultural, people, relationship, sport
   wildlife = 'wildlife', // animal, flower, nature, space
   entertainment = 'entertainment', // tvshow
@@ -70,7 +70,7 @@ export function filterCategories(category?: PictureCategory): string[] {
       PictureCategory.house,
       PictureCategory.monument,
     ],
-    characters: [
+    character: [
       PictureCategory.people,
       PictureCategory.peoplemedia,
     ],
@@ -111,7 +111,7 @@ export function filterCategories(category?: PictureCategory): string[] {
     category !== PictureCategory.all
     && category !== PictureCategory.architecture
     && category !== PictureCategory.mainstream
-    && category !== PictureCategory.characters
+    && category !== PictureCategory.character
     && category !== PictureCategory.human
     && category !== PictureCategory.wildlife
     && category !== PictureCategory.entertainment
