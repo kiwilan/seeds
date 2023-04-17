@@ -29,6 +29,7 @@
     "docker:build": "rimraf build && npm run config && NODE_ENV=production tsx setup.js",
     "start": "node build/index.mjs",
     "pm2": "pm2 start --name 'seeds' './build/index.mjs'",
+    "pm2-cluster": "pm2 start --name 'seeds' './build/index.mjs' -i max",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "vitest",
