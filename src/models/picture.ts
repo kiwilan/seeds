@@ -4,9 +4,9 @@ import type { Size } from '~/types'
 export class Picture {
   protected constructor(
     public readonly filename: string,
-    public readonly extension?: string,
-    public readonly sizeRender?: Size,
-    public pathFilename?: string,
+    public readonly extension: string,
+    public readonly sizeRender: Size,
+    public pathFilename: string,
     public id?: string,
     public category?: string,
     public size?: number,
@@ -44,7 +44,7 @@ export class Picture {
       originalURL = `https://unsplash.com/photos/${token}`
     }
 
-    const self = new Picture(filename, extension, sizeRender)
+    const self = new Picture(filename, extension, sizeRender, path)
     // self.id = Math.random().toString(36).slice(2, 16)
     // self.id = token
     self.category = splitted[splitted.length - 2] || 'unknown'
