@@ -1,8 +1,6 @@
 import type { FastifyPluginAsync } from 'fastify'
 import { Router } from '@kiwilan/fastify-utils'
 import { PictureService } from '~/services/PictureService'
-import { SharpService } from '~/services/SharpService'
-import type { Size } from '~/types'
 
 const route: FastifyPluginAsync = async (fastify): Promise<void> => {
   fastify.route({
@@ -21,17 +19,10 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
       const pictures = service.getPictures()
       const picture = pictures[Math.floor(Math.random() * (pictures.length - 1))]
 
-      const size: Size = (queryParams.size as Size) || 'medium'
-      const sharp = SharpService.make(picture.pathFilename, size)
+      // const size: Size = (queryParams.size as Size) || 'medium'
+      // const sharp = SharpService.make(picture.pathFilename, size)
 
-      try {
-        return reply.sendFile(sharp.getNewPathOrigin())
-      }
-      catch (error) {
-        console.error(error)
-
-        return reply.sendFile(sharp.getNewPathOrigin())
-      }
+      return reply.sendFile(picture.pathFilename)
     },
   })
 }

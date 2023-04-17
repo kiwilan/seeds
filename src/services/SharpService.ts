@@ -1,3 +1,4 @@
+import type { Buffer } from 'node:buffer'
 import { FsFile, FsPath } from '@kiwilan/filesystem'
 import type { Sharp } from 'sharp'
 import sharp from 'sharp'
