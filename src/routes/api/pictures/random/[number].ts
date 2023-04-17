@@ -19,7 +19,7 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
         category: queryParams.category || 'all',
       })
       const pictures = service.getPictures()
-      const picture = pictures[Math.floor(Math.random() * pictures.length)]
+      const picture = pictures[Math.floor(Math.random() * (pictures.length - 1))]
 
       const size: Size = (queryParams.size as Size) || 'medium'
       const sharp = SharpService.make(picture.pathFilename, size)
