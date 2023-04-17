@@ -24,7 +24,14 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
       const size: Size = (queryParams.size as Size) || 'medium'
       const sharp = SharpService.make(picture.pathFilename, size)
 
-      return reply.sendFile(sharp.getNewPathOrigin())
+      try {
+        return reply.sendFile(sharp.getNewPathOrigin())
+      }
+      catch (error) {
+        console.error(error)
+
+        return reply.sendFile(sharp.getNewPathOrigin())
+      }
     },
   })
 }
