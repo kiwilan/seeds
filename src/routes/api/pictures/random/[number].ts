@@ -20,14 +20,12 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
       const picture = pictures[Math.floor(Math.random() * (pictures.length - 1))]
 
       const picturePath = FsPath.root(`src/public/${picture.pathFilename}`)
-      const path = picturePath.replace('/large/', `/${queryParams.size}/`)
+      let path = picturePath.replace('/large/', `/${queryParams.size}/`)
+      path = path.replace(FsPath.root('src/public'), '')
       // const size: Size = (queryParams.size as Size) || 'medium'
       // const sharp = SharpService.make(picture.pathFilename, size)
 
-      // return reply.sendFile(path)
-      return {
-        path
-      }
+      return reply.sendFile(path)
     },
   })
 }
