@@ -13,6 +13,7 @@ export class SharpService {
     protected newPathOrigin?: string,
     protected sharp?: Sharp,
     protected size?: number,
+    protected exists?: boolean
   ) {}
 
   public static make(origin: string, size: Size): SharpService {
@@ -24,9 +25,12 @@ export class SharpService {
     newPath = originalPath.replace('/large/', `/${size}/`)
 
     const self = new SharpService(origin, originalPath, newPath)
+    self.fileExists().then((exists) => self.exists = exists)
 
     self.size = sizeWidth
-    self.sharp = sharp(originalPath)
+    if (!self.exists)
+      self.sharp = sharp(originalPath)
+
     self.newPathOrigin = newPath.replace(FsPath.root('src/public'), '')
 
     return self
