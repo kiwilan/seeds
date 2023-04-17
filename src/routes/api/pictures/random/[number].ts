@@ -28,10 +28,7 @@ const route: FastifyPluginAsync = async (fastify): Promise<void> => {
 
       // const sharp = SharpService.make(picture.pathFilename, size)
 
-      // return reply.sendFile(path)
-      return {
-        path
-      }
+      return reply.sendFile(path)
     },
   })
 }
