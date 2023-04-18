@@ -7,7 +7,7 @@
 [![tests][tests-src]][tests-href]
 [![pipeline][pipeline-actions-src]][pipeline-actions-href]
 
-API for seeds pictures. You could use pictures from [this repo](https://gitlab.com/kiwilan/seeds-pictures).
+API to use random pictures with seeders. You could use pictures from [this repo](https://gitlab.com/kiwilan/seeds-pictures).
 
 ## Setup
 
