@@ -1,8 +1,8 @@
-import { LocalServer } from '@kiwilan/fastify-utils'
+import { Server } from '@kiwilan/fastify-utils'
 import fastifyStatic from '@fastify/static'
 import { FsFile, FsPath } from '@kiwilan/filesystem'
 
-LocalServer.run({
+Server.run({
   apiKeyProtect: '/api',
   register: async (fastify) => {
     fastify.register(fastifyStatic, {
