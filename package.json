@@ -43,7 +43,7 @@
     "@fastify/middie": "^8.3.0",
     "@fastify/sensible": "^5.2.0",
     "@fastify/static": "^6.10.1",
-    "@kiwilan/fastify-utils": "^0.2.11",
+    "@kiwilan/fastify-utils": "^0.2.12",
     "@kiwilan/filesystem": "^0.0.18",
     "archiver": "^5.3.1",
     "fastify": "^4.17.0",
